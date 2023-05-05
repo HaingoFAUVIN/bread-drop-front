@@ -1,0 +1,49 @@
+@import '../../styles/_vars.scss';
+
+.footer {
+    background-color: $second-color;
+
+    &-logo {
+        display: flex;
+        justify-content: center;
+    }
+    
+
+    &-link {
+        display: flex;
+        justify-content: center;
+        
+    }
+
+    &-linkOne {
+        margin-right: 2rem;  
+    }
+
+    &-link1 {
+        background-color: $base-color;
+    }
+    &-link2 {
+        background-color: $base-color;
+    }
+    &-link3 {
+        background-color: $base-color;
+    }
+    &-link4 {
+        background-color: $base-color;
+    }
+    &-link5 {
+        background-color: $base-color;
+    }
+    &-link6 {
+        background-color: $base-color;
+    }
+
+    &-sociaux {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem;
+        background-color: $base-color;
+        border-radius: 1rem;
+
+    }
+}
