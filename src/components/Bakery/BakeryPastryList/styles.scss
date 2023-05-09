@@ -1,5 +1,11 @@
 @import '../../../styles/vars';
 
+.main{
+  display: flex;
+  justify-content: center;
+
+}
+
 .card {
   width: 180px;
   margin: 2rem;
