@@ -18,7 +18,7 @@ function Nav() {
         <div className="adress-input">
           <IconTextField
             label="Entrez votre adresse"
-            iconStart={<AddLocationIcon sx={{ color: "green", fontSize: 20 }} />}
+            iconStart={<AddLocationIcon sx={{ color: 'green', fontSize: 20 }} />}
           />
         </div>
       </div>

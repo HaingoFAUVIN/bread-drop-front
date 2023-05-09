@@ -1,17 +1,13 @@
 import './styles.scss';
-import { BrowserRouter as Router } from 'react-router-dom';
-import  Home from '../Home/Home';
-import  Login from '../User/Login/Login';
-import  CheckIn from '../User/CheckIn/CheckIn';
-import  CheckInPro from '../User/CheckInPro/CheckInPro';
-import  Bakery from '../Bakery/Bakery';
-import { Routes, Route } from 'react-router-dom';
-
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from '../Home/Home';
+import Login from '../User/Login/Login';
+import CheckIn from '../User/CheckIn/CheckIn';
+import CheckInPro from '../User/CheckInPro/CheckInPro';
+import Bakery from '../Bakery/Bakery';
 
 function App() {
   return (
-    <>
     <Router>
       <Routes>
         <Route path="/inscription" element={<Login />} />
@@ -21,7 +17,6 @@ function App() {
         <Route path="/boulangerie-produit" element={<Bakery />} />
       </Routes>
     </Router>
-    </>
   );
 }
 

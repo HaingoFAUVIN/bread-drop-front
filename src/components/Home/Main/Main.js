@@ -3,9 +3,7 @@ import './styles.scss';
 
 function Main() {
   return (
-    <>
     <BakeriesList />
-    </>
   );
 }
 

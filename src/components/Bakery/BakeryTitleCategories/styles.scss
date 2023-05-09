@@ -1,0 +1,18 @@
+@import '../../../styles/vars';
+
+.category {
+  display: flex;
+  justify-content:space-around;
+  margin: 3rem;
+
+  &-title {
+    background-color: $second-color;
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+
+  &-button{
+    background-color: $second-color;
+    border-radius: 1rem;
+  }
+}

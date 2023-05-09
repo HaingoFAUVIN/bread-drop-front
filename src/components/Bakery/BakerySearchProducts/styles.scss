@@ -1,0 +1,6 @@
+@import '../../../styles/vars';
+
+input::placeholder {
+  color: $base-color;
+  font-weight: bold;
+}
