@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import IconTextField from '@mui/material/TextField';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddLocationIcon from '@mui/icons-material/AddLocation';
-import Logo from '../../../assets/Logo.png';
+import Logo from '../../../../assets/Logo.png';
 
 import './styles.scss';
 
