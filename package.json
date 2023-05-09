@@ -38,7 +38,7 @@
     "postcss-loader": "^7.0.2",
     "postcss-preset-env": "^8.0.1",
     "resolve-url-loader": "^5.0.0",
-    "sass": "^1.59.3",
+    "sass": "^1.62.1",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.2",
     "terser-webpack-plugin": "^5.3.7",
@@ -48,12 +48,19 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@emotion/babel-plugin": "^11.10.8",
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.3",
     "axios": "^1.4.0",
     "dompurify": "^3.0.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
     "react-router": "^6.11.1",
-    "react-router-dom": "^6.11.1"
+    "react-router-dom": "^6.11.1",
+    "redux": "^4.2.1"
   }
 }
