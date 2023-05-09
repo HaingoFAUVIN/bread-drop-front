@@ -17,8 +17,8 @@ function Nav() {
         </div>
         <div className="adress-input">
           <IconTextField
-            placeholder="Modifier mon adresse"
-            iconStart={<AddLocationIcon sx={{ color: 'white', fontSize: 20 }} />}
+            label="Entrez votre adresse"
+            iconStart={<AddLocationIcon sx={{ color: "green", fontSize: 20 }} />}
           />
         </div>
       </div>
