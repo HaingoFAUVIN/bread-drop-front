@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import ArrowCircleDownOutlinedIcon from '@mui/icons-material/ArrowCircleDownOutlined';
+import ArrowCircleUpOutlinedIcon from '@mui/icons-material/ArrowCircleUpOutlined';
 import './styles.scss';
 
 function BakeryTitleBread({ isVisible, setIsVisible }) {
@@ -14,7 +16,7 @@ function BakeryTitleBread({ isVisible, setIsVisible }) {
         }}
       >
         {/* STYLISER LE BUTTON  */}
-        {isVisible ? 'Cachez' : 'Afficher'} la liste
+        {isVisible ? <ArrowCircleUpOutlinedIcon /> : <ArrowCircleDownOutlinedIcon />}
       </button>
     </section>
   );

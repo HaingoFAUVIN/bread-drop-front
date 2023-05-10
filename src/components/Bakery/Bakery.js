@@ -41,6 +41,7 @@ function Bakery({
       { isVisible3 && <BakeryViennoiserieList /> }
       <BakeryTitleSandwich isVisible4={isVisible4} setIsVisible4={setIsVisible4} />
       { isVisible4 && <BakerySandwichList /> }
+      {/* SUPPRIMER LE FOOTER AVANT DE PULL */}
       <Footer />
 
     </>
