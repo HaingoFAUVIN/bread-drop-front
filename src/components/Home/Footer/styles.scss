@@ -13,38 +13,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
     }
 
-    &-linkOne {
+    &-linkOne, &-linkTwo {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        margin-right: 2rem;  
+        margin: 1rem 0;  
     }
 
-    &-linkTwo {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        margin-right: 2rem;  
-    }
-
-    &-link1 {
-        background-color: $base-color;
-    }
-    &-link2 {
-        background-color: $base-color;
-    }
-    &-link3 {
-        background-color: $base-color;
-    }
-    &-link4 {
-        background-color: $base-color;
-    }
-    &-link5 {
-        background-color: $base-color;
-    }
-    &-link6 {
+    &-link1, &-link2, &-link3, &-link4, &-link5, &-link6 {
         background-color: $base-color;
     }
 
@@ -62,5 +41,16 @@
         display: flex;
         align-items: center;
         border-radius: 5px;
+    }
+    
+    @media (max-width: 768px) {
+        &-link {
+            flex-direction: column;
+        }
+
+        &-linkOne, &-linkTwo {
+            margin: 1rem auto;
+            text-align: center;
+        }
     }
 }
