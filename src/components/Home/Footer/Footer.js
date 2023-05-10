@@ -1,9 +1,9 @@
 import './styles.scss';
 import { NavLink } from 'react-router-dom';
-import Logo from '../../../assets/Logo.png';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import Logo from '../../../assets/Logo.png';
 
 function Footer() {
   return (

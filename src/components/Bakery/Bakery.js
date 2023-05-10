@@ -5,11 +5,10 @@ import Footer from '../Home/Footer/Footer';
 import Nav from '../Home/Header/Nav/Nav';
 import BakeryBanner from './BakeryBanner/BakeryBanner';
 import BakerySearchProducts from './BakerySearchProducts/BakerySearchProducts';
-import BakerySandwichList from './BakerySandwichList/BakerySandwichList';
-import BakeryTitleSandwich from './BakeryTitleSandwich/BakeryTitleSandwich';
 import Bread from './Bread/Bread';
 import Pastry from './Pastry/Pastry';
 import Viennoiserie from './Viennoiserie/Viennoiserie';
+import Sandwich from './Sandwich/Sandwich';
 
 // DATA, SCSS, ASSETS
 import './styles.scss';
@@ -28,14 +27,14 @@ function Bakery({
     <>
       {/* SUPPRIMER LA NAV AVANT DE PULL */}
       <Nav />
+
       <BakeryBanner />
       <BakerySearchProducts />
       <Bread isVisible={isVisible} setIsVisible={setIsVisible} />
       <Pastry isVisible2={isVisible2} setIsVisible2={setIsVisible2} />
       <Viennoiserie isVisible3={isVisible3} setIsVisible3={setIsVisible3} />
-      {/* <Sandwich isVisible4={isVisible4} setIsVisible4={setIsVisible4} /> */}
-      <BakeryTitleSandwich isVisible4={isVisible4} setIsVisible4={setIsVisible4} />
-      { isVisible4 && <BakerySandwichList /> }
+      <Sandwich isVisible4={isVisible4} setIsVisible4={setIsVisible4} />
+
       {/* SUPPRIMER LE FOOTER AVANT DE PULL */}
       <Footer />
 
