@@ -1,14 +1,14 @@
 import './styles.scss';
-import pain from './pain.jpg';
+import sandwich from './sandwich.jpg';
 
-function BakeryBreadList() {
+function BakerySandwichList() {
   return (
     <main className="main">
       <div className="card">
         <a href="#">
           {/* Image du produit */}
           <div className="card-image">
-            <img src={pain} alt="pain" />
+            <img src={sandwich} alt="sandwich" />
           </div>
         </a>
         {/* Fin de l'image à la une */}
@@ -34,7 +34,7 @@ function BakeryBreadList() {
         <a href="#">
           {/* Image du produit */}
           <div className="card-image">
-            <img src={pain} alt="pain" />
+            <img src={sandwich} alt="sandwich" />
           </div>
         </a>
         {/* Fin de l'image à la une */}
@@ -60,7 +60,7 @@ function BakeryBreadList() {
         <a href="#">
           {/* Image du produit */}
           <div className="card-image">
-            <img src={pain} alt="pain" />
+            <img src={sandwich} alt="sandwich" />
           </div>
         </a>
         {/* Fin de l'image à la une */}
@@ -86,7 +86,7 @@ function BakeryBreadList() {
         <a href="#">
           {/* Image du produit */}
           <div className="card-image">
-            <img src={pain} alt="pain" />
+            <img src={sandwich} alt="sandwich" />
           </div>
         </a>
         {/* Fin de l'image à la une */}
@@ -111,4 +111,4 @@ function BakeryBreadList() {
   );
 }
 
-export default BakeryBreadList;
+export default BakerySandwichList;

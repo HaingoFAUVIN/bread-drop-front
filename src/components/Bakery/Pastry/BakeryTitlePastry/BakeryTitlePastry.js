@@ -6,7 +6,7 @@ import './styles.scss';
 function BakeryTitlePastry({ isVisible2, setIsVisible2 }) {
   return (
     <section className="category">
-      <h1 className="category-title"> PÂTISSERIES</h1>
+      <h1 className="category-title"> PÂTISSERIE</h1>
       <button
         className="category-button"
         type="button"
