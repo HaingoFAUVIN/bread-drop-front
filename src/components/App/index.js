@@ -11,8 +11,16 @@ import Bakery from '../Bakery/Bakery';
 function App() {
   const [isVisible, setIsVisible] = useState(true);
 
+  const [isVisible2, setIsVisible2] = useState(true);
+  const [isVisible3, setIsVisible3] = useState(true);
+  const [isVisible4, setIsVisible4] = useState(true);
+
   const toggleIsVisible = () => {
     setIsVisible(!isVisible);
+  };
+
+  const toggleIsVisible2 = () => {
+    setIsVisible2(!isVisible2);
   };
 
   return (
@@ -25,7 +33,7 @@ function App() {
         <Route
           path="/boulangerie-produit"
           // eslint-disable-next-line max-len
-          element={<Bakery isVisible={isVisible} setIsVisible={setIsVisible} toggleIsVisible={toggleIsVisible} />}
+          element={<Bakery isVisible={isVisible} setIsVisible={setIsVisible} toggleIsVisible={toggleIsVisible} isVisible2={isVisible2} setIsVisible2={setIsVisible2} toggleIsVisible2={toggleIsVisible2} />}
         />
       </Routes>
     </Router>
