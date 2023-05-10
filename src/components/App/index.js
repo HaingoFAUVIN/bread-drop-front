@@ -10,7 +10,6 @@ import Bakery from '../Bakery/Bakery';
 
 function App() {
   const [isVisible, setIsVisible] = useState(true);
-
   const [isVisible2, setIsVisible2] = useState(true);
   const [isVisible3, setIsVisible3] = useState(true);
   const [isVisible4, setIsVisible4] = useState(true);

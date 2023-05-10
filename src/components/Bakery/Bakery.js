@@ -4,15 +4,14 @@ import Footer from '../Home/Footer/Footer';
 // --- COMPOSANTS
 import Nav from '../Home/Header/Nav/Nav';
 import BakeryBanner from './BakeryBanner/BakeryBanner';
-import BakeryBreadList from './BakeryBreadList/BakeryBreadList';
 import BakeryPastryList from './BakeryPastryList/BakeryPastryList';
 import BakerySandwichList from './BakerySandwichList/BakerySandwichList';
 import BakerySearchProducts from './BakerySearchProducts/BakerySearchProducts';
-import BakeryTitleBread from './BakeryTitleBread/BakeryTitleBread';
 import BakeryTitlePastry from './BakeryTitlePastry/BakeryTitlePastry';
 import BakeryTitleSandwich from './BakeryTitleSandwich/BakeryTitleSandwich';
 import BakeryTitleViennoiserie from './BakeryTitleViennoiserie/BakeryTitleViennoiserie';
 import BakeryViennoiserieList from './BakeryViennoiserieList/BakeryViennoiserieList';
+import Bread from './Bread/Bread';
 
 // DATA, SCSS, ASSETS
 import './styles.scss';
@@ -33,8 +32,7 @@ function Bakery({
       <Nav />
       <BakeryBanner />
       <BakerySearchProducts />
-      <BakeryTitleBread isVisible={isVisible} setIsVisible={setIsVisible} />
-      { isVisible && <BakeryBreadList /> }
+      <Bread isVisible={isVisible} setIsVisible={setIsVisible} />
       <BakeryTitlePastry isVisible2={isVisible2} setIsVisible2={setIsVisible2} />
       { isVisible2 && <BakeryPastryList /> }
       <BakeryTitleViennoiserie isVisible3={isVisible3} setIsVisible3={setIsVisible3} />
