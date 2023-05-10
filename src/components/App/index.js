@@ -23,6 +23,14 @@ function App() {
     setIsVisible2(!isVisible2);
   };
 
+  const toggleIsVisible3 = () => {
+    setIsVisible3(!isVisible3);
+  };
+
+  const toggleIsVisible4 = () => {
+    setIsVisible4(!isVisible4);
+  };
+
   return (
     <Router>
       <Routes>
@@ -33,7 +41,7 @@ function App() {
         <Route
           path="/boulangerie-produit"
           // eslint-disable-next-line max-len
-          element={<Bakery isVisible={isVisible} setIsVisible={setIsVisible} toggleIsVisible={toggleIsVisible} isVisible2={isVisible2} setIsVisible2={setIsVisible2} toggleIsVisible2={toggleIsVisible2} />}
+          element={<Bakery isVisible={isVisible} setIsVisible={setIsVisible} toggleIsVisible={toggleIsVisible} isVisible2={isVisible2} setIsVisible2={setIsVisible2} toggleIsVisible2={toggleIsVisible2} isVisible3={isVisible3} setIsVisible3={setIsVisible3} toggleIsVisible3={toggleIsVisible3} isVisible4={isVisible4} setIsVisible4={setIsVisible4} toggleIsVisible4={toggleIsVisible4} />}
         />
       </Routes>
     </Router>

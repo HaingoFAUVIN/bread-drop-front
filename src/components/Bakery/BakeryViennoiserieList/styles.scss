@@ -1,0 +1,55 @@
+@import '../../../styles/vars';
+
+.category {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+
+  &-title {
+    background-color: $second-color;
+    border-radius: 0.5rem;
+    padding: 0.7rem;
+    margin-right: 2rem;
+  }
+
+  &-button{
+    background-color: $second-color;
+    border-radius: 1rem;
+  }
+}
+
+.main{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+
+}
+
+.card {
+  width: 180px;
+  margin: 2rem;
+  background-color: $second-color;
+  box-shadow: 0px 5px 20px #999;
+  border-radius: 1rem;
+}
+
+.card-image img {
+  width: 180px;
+  height: 150px;
+  border-radius: 1rem 1rem 0rem 0rem;
+  
+}
+
+.card-body {
+  text-align:center;
+  padding: 15px 20px;
+  box-sizing: border-box;
+}
+
+.card-infos {
+  margin-top: 2.5rem;
+  text-align: left;
+  font-size: 10px;
+}
+
+
