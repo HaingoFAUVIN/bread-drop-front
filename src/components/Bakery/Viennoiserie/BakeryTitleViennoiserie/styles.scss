@@ -17,3 +17,11 @@
     border-radius: 1rem;
   }
 }
+
+@media screen and (max-width:800px) {
+  .category {
+    display: flex;
+    justify-content:space-between;
+    margin: 3rem;
+  }
+}
