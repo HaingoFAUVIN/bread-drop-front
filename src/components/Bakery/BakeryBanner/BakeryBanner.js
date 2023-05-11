@@ -6,8 +6,8 @@ function BakeryBanner() {
       <div className="banner-card">
         {/* METTRE EN DYNAMIQUE LES INFORMATIONS DE LA BOULANGERIE (TITRE,HORAIRE,DESCRIPTION) */}
         <h1>TITRE
-          <br /> HORAIRES
-          <br /> DESCRIPTION
+          <p>HORAIRES</p>
+          <p>DESCRIPTION</p>
         </h1>
       </div>
     </div>

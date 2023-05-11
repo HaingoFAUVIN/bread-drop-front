@@ -39,3 +39,27 @@
     border-radius: 5px;
     color: white;
 }
+
+@media screen and (max-width:800px) {
+  .navbar-menu .navbar-pro{
+    display: none;
+  }
+
+  .navbar-menu .navbar-inscription{
+    display: none;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .navbar-menu .navbar-pro{
+    display: none;
+  }
+
+  .navbar-menu .navbar-inscription{
+    display: none;
+  }
+  
+  .navbar-container .adress-input{
+    display: none;
+  }
+}

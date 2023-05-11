@@ -7,9 +7,9 @@ function BakeryViennoiserieList() {
     <section className="container">
       <div className="card">
         <div className="card-image">
-          <img className="imageCard" src={viennoiserie} alt="pain" />
+          <img className="imageCard" src={viennoiserie} alt="VIENNOISERIE" />
         </div>
-        <h2 className="card-title">PAIN</h2>
+        <h2 className="card-title">VIENNOISERIE</h2>
         <div className="card-infos">
           <div className="card-priceQuantite">
             <p>1€</p>
@@ -21,9 +21,9 @@ function BakeryViennoiserieList() {
 
       <div className="card">
         <div className="card-image">
-          <img className="imageCard" src={viennoiserie} alt="pain" />
+          <img className="imageCard" src={viennoiserie} alt="VIENNOISERIE" />
         </div>
-        <h2 className="card-title">PAIN</h2>
+        <h2 className="card-title">VIENNOISERIE</h2>
         <div className="card-infos">
           <div className="card-priceQuantite">
             <p>1€</p>
@@ -35,9 +35,9 @@ function BakeryViennoiserieList() {
 
       <div className="card">
         <div className="card-image">
-          <img className="imageCard" src={viennoiserie} alt="pain" />
+          <img className="imageCard" src={viennoiserie} alt="VIENNOISERIE" />
         </div>
-        <h2 className="card-title">PAIN</h2>
+        <h2 className="card-title">VIENNOISERIE</h2>
         <div className="card-infos">
           <div className="card-priceQuantite">
             <p>1€</p>
@@ -49,9 +49,9 @@ function BakeryViennoiserieList() {
 
       <div className="card">
         <div className="card-image">
-          <img className="imageCard" src={viennoiserie} alt="pain" />
+          <img className="imageCard" src={viennoiserie} alt="VIENNOISERIE" />
         </div>
-        <h2 className="card-title">PAIN</h2>
+        <h2 className="card-title">VIENNOISERIE</h2>
         <div className="card-infos">
           <div className="card-priceQuantite">
             <p>1€</p>
