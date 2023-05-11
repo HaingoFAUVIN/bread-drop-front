@@ -5,20 +5,20 @@
     justify-content: space-between;
     align-items: center;
 
-    &-container {
+    .navbar-container {
         display: flex;
         gap: 1rem;
         margin-left: 1rem;
     }
 
-    &-menu {
+    .navbar-menu {
       display: flex;
       margin-right: 1rem;
       gap: 0.5rem;
       align-items: center;
     }
 
-    &-item {
+    .navbar-item {
       padding: 0.5rem;
       height: 36px;
       border-radius: 5px;

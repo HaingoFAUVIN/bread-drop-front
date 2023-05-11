@@ -11,7 +11,6 @@ import Viennoiserie from './Viennoiserie/Viennoiserie';
 import Sandwich from './Sandwich/Sandwich';
 
 // DATA, SCSS, ASSETS
-import './styles.scss';
 
 function Bakery({
   isVisible,

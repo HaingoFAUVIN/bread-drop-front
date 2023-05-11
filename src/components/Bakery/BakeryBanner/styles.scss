@@ -7,7 +7,7 @@
   background-position: center; // A ENLEVER ?
   background-repeat: no-repeat; // A ENLEVER ?
 
-  &-card {
+  .banner-card {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -19,5 +19,7 @@
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     line-height: 2rem;
+    width: 55%;
+    height: 35%;
   }
 }

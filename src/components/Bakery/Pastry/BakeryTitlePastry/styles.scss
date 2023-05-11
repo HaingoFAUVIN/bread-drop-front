@@ -5,14 +5,14 @@
   justify-content: center;
   margin: 3rem;
 
-  &-title {
+  .category-title {
     background-color: $second-color;
     border-radius: 0.5rem;
     padding: 0.7rem;
     margin-right: 2rem;
   }
 
-  &-button{
+  .category-button{
     background-color: $second-color;
     border-radius: 1rem;
   }

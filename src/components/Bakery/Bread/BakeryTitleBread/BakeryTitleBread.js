@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */ // TYPE BUTTON DESACTIVER
 import PropTypes from 'prop-types';
 import ArrowCircleDownOutlinedIcon from '@mui/icons-material/ArrowCircleDownOutlined';
 import ArrowCircleUpOutlinedIcon from '@mui/icons-material/ArrowCircleUpOutlined';
@@ -9,7 +10,6 @@ function BakeryTitleBread({ isVisible, setIsVisible }) {
       <h1 className="category-title"> PAINS</h1>
       <button
         className="category-button"
-        type="button"
         onClick={() => {
           // console.log('Boutton cliqué');
           setIsVisible(!isVisible);
