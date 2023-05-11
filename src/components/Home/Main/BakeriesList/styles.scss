@@ -1,11 +1,95 @@
 @import '../../../../styles/vars.scss';
 
-.bakerie-section {
+.bakerie {
     width: 80%;
     margin: 0 auto;
 
-    &section-title {
-        
+    &-search {
+        background-color: $second-color;
+        border: none;
+        border-radius: 5px;
+        padding: 1rem;
+        width: 50%;
+    }
+
+    &-section-title {
+        color: #fff;
+        font-size: 2rem;
+        margin-top: 1rem;
+    }
+
+    &-element {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    &-box {
+        background-color: $second-color;
+        border-radius: 5px;
+        width: 20%;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    &-img-container {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; // Pour maintenir le rapport hauteur/largeur de l'image (16:9)
+        overflow: hidden;
+    }
+
+    &-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &-content {
+        padding: 1rem;
+    }
+
+    &-title {
+        color: #fff;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    &-date {
+        color: #fff;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    &-description {
+        color: #fff;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    &-all-btn {
+        text-align: center;
+    }
+
+    &-btn {
+        background-color: $second-color;
+        border: none;
+        border-radius: 50%;
+        padding: 1rem;
+        color: #fff;
+        margin-bottom: 2rem;
     }
 }
 
@@ -15,10 +99,42 @@
     margin-top: 1rem;
 }
 
-.bakerie-search {
-    background-color: $second-color;
-    border: none;
-    border-radius: 5px;
-    padding: 1rem;
-    width: 50%;
+input::placeholder {
+    color: white
+  }
+
+@media (max-width: 1024px) {
+    .bakerie {
+        &-search {
+            width: 70%;
+        }
+
+        &-box {
+            width: 30%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .bakerie {
+        &-search {
+            width: 80%;
+        }
+
+        &-box {
+            width: 45%;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .bakerie {
+        &-search {
+            width: 100%;
+        }
+
+        &-box {
+            width: 100%;
+        }
+    }
 }
