@@ -42,7 +42,7 @@ function Nav() {
       </div>
 
       <div className="navbar-menu">
-        <Link to="/" className="navbar-item navbar-panier">
+        <Link to="/panier" className="navbar-item navbar-panier">
           <ShoppingCartIcon fontSize="small" />
           Panier
         </Link>
