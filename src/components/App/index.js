@@ -5,6 +5,7 @@ import  Login from '../User/Login/Login';
 import  CheckIn from '../User/CheckIn/CheckIn';
 import  CheckInPro from '../User/CheckInPro/CheckInPro';
 import  Bakery from '../Bakery/Bakery';
+import Basket from '../Basket/Basket';
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/connexion-pro" element={<CheckInPro />} />
         <Route path="/home" element={<Home />} />
         <Route path="/boulangerie-produit" element={<Bakery />} />
+        <Route path="/panier" element={<Basket />} />
       </Routes>
     </Router>
     </>
