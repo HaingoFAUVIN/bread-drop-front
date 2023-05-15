@@ -5,9 +5,11 @@ import './styles.scss';
 
 function Main() {
   return (
-    <BakeriesList />
-    <Newsletter />
-    <Faq />
+    <>
+      <BakeriesList />
+      <Newsletter />
+      <Faq />
+    </>
   );
 }
 

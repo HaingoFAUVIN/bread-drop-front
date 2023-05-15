@@ -1,3 +1,5 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable max-len */
 import './styles.scss';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { useEffect, useState } from 'react';
@@ -11,15 +13,32 @@ function BakeriesList() {
     },
   });
 
+  const opencageApi = 'https://api.opencagedata.com/geocode/v1/json';
+  const opencageKey = '255c8a0da0cf451897955c3086cc1cff';
+
   const [bakeriesList, setBakeriesList] = useState([]);
   const [schedules, setSchedules] = useState([]);
+  const [search, setSearch] = useState('');
 
   const bakeries = async () => {
     try {
       const response = await api.get('api/boulangeries');
-      console.log(response.data);
-      setBakeriesList(response.data);
-    } catch (error) {
+      const bakeriesWithCoords = await Promise.all(
+        response.data.map(async (bakery) => {
+          const geoResponse = await axios.get(
+            `${opencageApi}?q=${encodeURIComponent(bakery.adress)}&key=${opencageKey}`,
+          );
+          const coordinates = geoResponse.data.results[0].geometry;
+          return {
+            ...bakery,
+            latitude: coordinates.lat,
+            longitude: coordinates.lng,
+          };
+        }),
+      );
+      setBakeriesList(bakeriesWithCoords);
+    }
+    catch (error) {
       console.log('erreur');
     }
   };
@@ -27,9 +46,9 @@ function BakeriesList() {
   const bakeriesTime = async () => {
     try {
       const response = await api.get('api/horraires/');
-      console.log(response.data);
       setSchedules(response.data);
-    } catch (error) {
+    }
+    catch (error) {
       console.log('erreur');
     }
   };
@@ -38,6 +57,28 @@ function BakeriesList() {
     bakeries();
     bakeriesTime();
   }, []);
+
+  const handleSearch = () => {
+    if (search !== '') {
+      axios
+        .get(`${opencageApi}?q=${search}&key=${opencageKey}`)
+        .then((response) => {
+          const coordinates = response.data.results[0].geometry;
+          setBakeriesList(
+            bakeriesList.filter(
+              (bakery) =>
+                Math.sqrt(
+                  Math.pow(bakery.latitude - coordinates.lat, 2) +
+                  Math.pow(bakery.longitude - coordinates.lng, 2)
+                ) <= 0.20,
+            ),
+          );
+        })
+        .catch((error) => console.log(error));
+    } else {
+      bakeries();
+    }
+  };
 
   const getDayName = (dayIndex) => {
     const days = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
@@ -49,9 +90,10 @@ function BakeriesList() {
   return (
     <div className="bakerie">
       <div className="search-container">
-        <input className="bakerie-search" type="text" placeholder="Recherche" />
+        <input className="bakerie-search" type="text" placeholder="Entrer votre adresse" onChange={(e) => setSearch(e.target.value)} />
+        <button onClick={handleSearch}> Rechercher</button>
       </div>
-      <h1 className="bakerie-section-title"></h1>
+      <h1 className="bakerie-section-title"> </h1>
       <div className="bakerie-element">
         {bakeriesList.map((bakery) => (
           <div key={bakery.id} className="bakerie-box">
@@ -65,7 +107,7 @@ function BakeriesList() {
                 .filter((schedule) => schedule.bakery.id === bakery.id && schedule.day === currentDay)
                 .map((schedule, index) => (
                   <p key={index}>
-                    Jour {schedule.day}: {schedule.openMorning} - {schedule.closeMorning}, {schedule.openAfternoon} - {schedule.closeAfternoon}
+                    {schedule.day}: {schedule.openMorning} - {schedule.closeMorning}, {schedule.openAfternoon} - {schedule.closeAfternoon}
                   </p>
                 ))}
             </div>
