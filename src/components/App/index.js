@@ -6,6 +6,7 @@ import CheckIn from '../User/CheckIn/CheckIn';
 import CheckInPro from '../User/CheckInPro/CheckInPro';
 import Bakery from '../Bakery/Bakery';
 import Orders from '../Profile/Orders';
+import Basket from '../Basket/Basket';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/boulangerie-produit" element={<Bakery />} />
         <Route path="/profil" element={<Orders />} />
+        <Route path="/panier" element={<Basket />} />
       </Routes>
     </Router>
   );
