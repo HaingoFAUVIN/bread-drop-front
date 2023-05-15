@@ -8,10 +8,9 @@ import Logo from '../../../assets/Logo.png';
 function Footer() {
   return (
     <section className="footer">
-
       <div className="footer-logo">
         <NavLink to="/" className="navbar-logo-image">
-          <img src={Logo} alt="Logo BreadDrop" height="100" width="100" />
+          <img src={Logo} alt="Logo BreadDrop" />
         </NavLink>
       </div>
 
