@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import ArrowCircleDownOutlinedIcon from '@mui/icons-material/ArrowCircleDownOutlined';
 import ArrowCircleUpOutlinedIcon from '@mui/icons-material/ArrowCircleUpOutlined';
 import './styles.scss';
+import { Link } from 'react-router-dom';
 
 function BakeryTitleBread({ isVisible, setIsVisible }) {
   return (
     <section className="category">
       <h1 className="category-title"> PAINS</h1>
-      <button
+      <Link
         className="category-button"
         onClick={() => {
           // console.log('Boutton cliqué');
@@ -17,7 +18,7 @@ function BakeryTitleBread({ isVisible, setIsVisible }) {
       >
         {/* STYLISER LE BUTTON  */}
         {isVisible ? <ArrowCircleUpOutlinedIcon /> : <ArrowCircleDownOutlinedIcon />}
-      </button>
+      </Link>
     </section>
   );
 }
