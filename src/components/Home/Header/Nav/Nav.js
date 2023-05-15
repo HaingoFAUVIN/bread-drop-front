@@ -33,12 +33,6 @@ function Nav() {
             <img src={Logo} alt="Logo BreadDrop" height="100" width="100" />
           </Link>
         </div>
-        <div className="adress-input">
-          <IconTextField
-            label="Entrez votre adresse"
-            iconStart={<AddLocationIcon sx={{ color: 'green', fontSize: 20 }} />}
-          />
-        </div>
       </div>
 
       <div className="navbar-menu">

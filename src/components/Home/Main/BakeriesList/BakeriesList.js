@@ -37,7 +37,8 @@ function BakeriesList() {
         }),
       );
       setBakeriesList(bakeriesWithCoords);
-    } catch (error) {
+    }
+    catch (error) {
       console.log('erreur');
     }
   };
@@ -46,7 +47,8 @@ function BakeriesList() {
     try {
       const response = await api.get('api/horraires/');
       setSchedules(response.data);
-    } catch (error) {
+    }
+    catch (error) {
       console.log('erreur');
     }
   };
@@ -56,7 +58,7 @@ function BakeriesList() {
     bakeriesTime();
   }, []);
 
-  useEffect(() => {
+  const handleSearch = () => {
     if (search !== '') {
       axios
         .get(`${opencageApi}?q=${search}&key=${opencageKey}`)
@@ -76,7 +78,7 @@ function BakeriesList() {
     } else {
       bakeries();
     }
-  }, [search]);
+  };
 
   const getDayName = (dayIndex) => {
     const days = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
@@ -88,7 +90,8 @@ function BakeriesList() {
   return (
     <div className="bakerie">
       <div className="search-container">
-        <input className="bakerie-search" type="text" placeholder="Recherche" onChange={(e) => setSearch(e.target.value)} />
+        <input className="bakerie-search" type="text" placeholder="Entrer votre adresse" onChange={(e) => setSearch(e.target.value)} />
+        <button onClick={handleSearch}> Rechercher</button>
       </div>
       <h1 className="bakerie-section-title"> </h1>
       <div className="bakerie-element">
