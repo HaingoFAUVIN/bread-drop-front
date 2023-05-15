@@ -5,12 +5,12 @@
     justify-content: space-between;
     align-items: center;
 
-    &-container {
+    .navbar-container {
         display: flex;
         gap: 1rem;
         margin-left: 1rem;
     }
-
+  
     &-responsive-open {
       display: flex;
       align-items: center;
@@ -40,7 +40,7 @@
       align-items: center;
     }
 
-    &-item {
+    .navbar-item {
       padding: 0.5rem;
       height: 36px;
       border-radius: 5px;
