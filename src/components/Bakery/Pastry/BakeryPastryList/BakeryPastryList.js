@@ -8,10 +8,16 @@ import './styles.scss';
 
 function BakeryPastryList({ pastries }) {
   const [openModal, setOpenModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const handleOpenModal = (pastry) => {
+    setSelectedProduct(pastry);
+    setOpenModal(true);
+  };
 
   return (
     <section className="container">
-      {openModal && <Modal closeModal={setOpenModal} />}
+      {openModal && <Modal closeModal={setOpenModal} product={selectedProduct} />}
       {pastries.map((pastry) => (
         <div className="card" key={pastry.id}>
           <div className="card-image">
@@ -26,7 +32,7 @@ function BakeryPastryList({ pastries }) {
             <Link
               className="OpenModal"
               onClick={() => {
-                setOpenModal(true);
+                handleOpenModal(pastry);
               }}
             >
               <AddCircleOutlineIcon />

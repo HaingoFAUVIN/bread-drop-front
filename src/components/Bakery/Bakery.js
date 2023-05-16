@@ -26,7 +26,6 @@ function Bakery({
   setIsVisible4,
 }) {
   const { id } = useParams();
-  console.log(id.id);
 
   const [bakery, setBakery] = useState(null);
   const [pastries, setPastries] = useState([]);

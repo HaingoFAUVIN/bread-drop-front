@@ -8,10 +8,16 @@ import './styles.scss';
 
 function BakeryViennoiserieList({ viennoiseries }) {
   const [openModal, setOpenModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const handleOpenModal = (viennoiserie) => {
+    setSelectedProduct(viennoiserie);
+    setOpenModal(true);
+  };
 
   return (
     <section className="container">
-      {openModal && <Modal closeModal={setOpenModal} />}
+      {openModal && <Modal closeModal={setOpenModal} product={selectedProduct} />}
       {viennoiseries.map((viennoiserie) => (
         <div className="card" key={viennoiserie.id}>
           <div className="card-image">
@@ -26,7 +32,7 @@ function BakeryViennoiserieList({ viennoiseries }) {
             <Link
               className="OpenModal"
               onClick={() => {
-                setOpenModal(true);
+                handleOpenModal(viennoiserie);
               }}
             >
               <AddCircleOutlineIcon />

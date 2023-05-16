@@ -8,10 +8,16 @@ import './styles.scss';
 
 function BakerySandwichList({ sandwiches }) {
   const [openModal, setOpenModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const handleOpenModal = (sandwich) => {
+    setSelectedProduct(sandwich);
+    setOpenModal(true);
+  };
 
   return (
     <section className="container">
-      {openModal && <Modal closeModal={setOpenModal} />}
+      {openModal && <Modal closeModal={setOpenModal} product={selectedProduct} />}
       {sandwiches.filter((sandwich) => sandwich.category === 'sandwich').map((sandwich) => (
         <div className="card" key={sandwich.id}>
           <div className="card-image">
@@ -26,7 +32,7 @@ function BakerySandwichList({ sandwiches }) {
             <Link
               className="OpenModal"
               onClick={() => {
-                setOpenModal(true);
+                handleOpenModal(sandwich);
               }}
             >
               <AddCircleOutlineIcon />

@@ -1,11 +1,40 @@
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
+import PropTypes from 'prop-types';
 import './styles.scss';
 import viennoiserie from './viennoiserie.jpg';
 import QuantityForm from '../QuantityForm/QuantityForm';
 
-function Modal({ closeModal }) {
+function Modal({ closeModal, product }) {
+  const [productDetails, setProductDetails] = useState(null);
+
+  const api = axios.create({
+    baseURL: 'http://davyvistel-server.eddi.cloud/',
+    headers: {
+      Authorization: 'Bearer',
+    },
+  });
+
+  useEffect(() => {
+    const fetchProductDetails = async () => {
+      try {
+        const response = await api.get(`api/produit/${product.id}`);
+        setProductDetails(response.data);
+        console.log(response.data);
+      }
+      catch (error) {
+        console.log(error);
+      }
+    };
+
+    if (product) {
+      fetchProductDetails();
+    }
+  }, [product]);
+
   return (
     <div className="modal-contain">
       <div className="modal-card">
@@ -17,12 +46,9 @@ function Modal({ closeModal }) {
             <HighlightOffOutlinedIcon />
           </Link>
         </div>
-        <div className="bakeryBreadList">
-          {/* <Modal /> */}
-        </div>
-        <h2 className="modal-title">PAIN</h2>
+        <h2 className="modal-title">{product.name}</h2>
         <div className="modal-description">
-          <p className="descriptionModal">DESCRIPTION DU PRODUIT</p>
+          <p className="descriptionModal">{product.description}</p>
         </div>
         <div className="modal-other">
           <h2 className="modal-likes">Vous aimerez peut-être ceci</h2>
@@ -36,16 +62,17 @@ function Modal({ closeModal }) {
         <div className="modal-choice">
           <QuantityForm />
         </div>
-        {/* <div className="modal-add">
-          ADD
-        </div> */}
       </div>
     </div>
   );
 }
-// FAIRE PROPTYPE
-// FORM
-// RESPONSIVE POPUP
-// ADD DU PANIER ??
+
+Modal.propTypes = {
+  product: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  })).isRequired,
+};
 
 export default Modal;
