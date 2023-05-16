@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import BakeryTitlePastry from './BakeryTitlePastry/BakeryTitlePastry';
 import BakeryPastryList from './BakeryPastryList/BakeryPastryList';
 
-function Pastry({ isVisible2, setIsVisible2 }) {
+function Pastry({ isVisible2, setIsVisible2, pastries }) {
   return (
     <>
       <BakeryTitlePastry isVisible2={isVisible2} setIsVisible2={setIsVisible2} />
-      { isVisible2 && <BakeryPastryList /> }
+      { isVisible2 && <BakeryPastryList pastries={pastries} /> }
     </>
   );
 }
@@ -15,6 +15,7 @@ function Pastry({ isVisible2, setIsVisible2 }) {
 Pastry.propTypes = {
   isVisible2: PropTypes.bool.isRequired,
   setIsVisible2: PropTypes.func.isRequired,
+  pastries: PropTypes.array.isRequired,
 };
 
 export default Pastry;

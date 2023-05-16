@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import Nav from '../Home/Header/Nav/Nav';
-import './Orders.scss';
 import UserPic from '../../assets/User.jpg';
 import Banner from '../../assets/UserBanner.png';
 import Bakery from '../../assets/Bakery.jpg';
+import './Orders.scss';
 
 function Orders() {
   return (
@@ -19,8 +20,8 @@ function Orders() {
         </div>
       </div>
       <div className="buttons">
-        <button type="button">Commandes récentes</button>
-        <button type="button">Modifier le profil</button>
+        <Link to="/profil" className="navbar-logo-image"> Commandes Récentes</Link>
+        <Link to="/edit-profil" className="navbar-logo-image"> Modifier mon profil</Link>
       </div>
       <div className="orders-list">
         <div className="order">

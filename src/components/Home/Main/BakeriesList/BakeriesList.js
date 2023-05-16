@@ -3,6 +3,7 @@
 import './styles.scss';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function BakeriesList() {
@@ -25,6 +26,7 @@ function BakeriesList() {
       const response = await api.get('api/boulangeries');
       const bakeriesWithCoords = await Promise.all(
         response.data.map(async (bakery) => {
+          console.log(bakery);
           const geoResponse = await axios.get(
             `${opencageApi}?q=${encodeURIComponent(bakery.adress)}&key=${opencageKey}`,
           );
@@ -69,7 +71,7 @@ function BakeriesList() {
               (bakery) =>
                 Math.sqrt(
                   Math.pow(bakery.latitude - coordinates.lat, 2) +
-                  Math.pow(bakery.longitude - coordinates.lng, 2)
+                  Math.pow(bakery.longitude - coordinates.lng, 2),
                 ) <= 0.20,
             ),
           );
@@ -96,22 +98,24 @@ function BakeriesList() {
       <h1 className="bakerie-section-title"> </h1>
       <div className="bakerie-element">
         {bakeriesList.map((bakery) => (
-          <div key={bakery.id} className="bakerie-box">
-            <div className="bakerie-img-container">
-              <img className="bakerie-img" src={bakery.picture} alt="Boulangerie" />
+          <Link className="bakerie-box" key={bakery.id} to={`/boulangeries/${bakery.id}`}>
+            <div className="bakerie-box">
+              <div className="bakerie-img-container">
+                <img className="bakerie-img" src={bakery.picture} alt="Boulangerie" />
+              </div>
+              <div className="bakerie-content">
+                <h1 className="bakerie-title">{bakery.name}</h1>
+                <p className="bakerie-description">{bakery.adress}</p>
+                {schedules
+                  .filter((schedule) => schedule.bakery.id === bakery.id && schedule.day === currentDay)
+                  .map((schedule, index) => (
+                    <p key={index}>
+                      {schedule.day}: {schedule.openMorning} - {schedule.closeMorning}, {schedule.openAfternoon} - {schedule.closeAfternoon}
+                    </p>
+                  ))}
+              </div>
             </div>
-            <div className="bakerie-content">
-              <h1 className="bakerie-title">{bakery.name}</h1>
-              <p className="bakerie-description">{bakery.adress}</p>
-              {schedules
-                .filter((schedule) => schedule.bakery.id === bakery.id && schedule.day === currentDay)
-                .map((schedule, index) => (
-                  <p key={index}>
-                    {schedule.day}: {schedule.openMorning} - {schedule.closeMorning}, {schedule.openAfternoon} - {schedule.closeAfternoon}
-                  </p>
-                ))}
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
       <div className="bakerie-all-btn">

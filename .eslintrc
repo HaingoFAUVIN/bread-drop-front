@@ -36,7 +36,9 @@
     "object-shorthand": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "prefer-exponentiation-operator": "off",
+    "max-len": "off"
   },
   "settings": {
     "import/resolver": {
