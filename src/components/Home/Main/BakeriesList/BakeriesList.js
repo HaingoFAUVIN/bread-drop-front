@@ -99,7 +99,7 @@ function BakeriesList() {
       <div className="bakerie-element">
         {bakeriesList.map((bakery) => (
           <Link className="bakerie-box" key={bakery.id} to={`/boulangeries/${bakery.id}`}>
-            <div className="bakerie-box">
+            <div> {/* Suppression de la classe */}
               <div className="bakerie-img-container">
                 <img className="bakerie-img" src={bakery.picture} alt="Boulangerie" />
               </div>
