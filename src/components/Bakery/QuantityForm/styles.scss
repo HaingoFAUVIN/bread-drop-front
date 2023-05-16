@@ -20,6 +20,7 @@
   margin-bottom: 1.5rem;
   width: 15%;
   color: white;
+  text-align: center;
 }
 .formAddQuantity {
   border-radius: 15px;
@@ -35,14 +36,14 @@
   justify-content: center;
   flex-direction: column;
   font-size: 19px;
-  padding: 0.5rem;
+  padding: 0.5rem; 
+  }
   
-}
-.labelQuantity{
-  display: flex;
-  justify-content: center;
-}
-.inputNumber {
+  .labelQuantity{
+    display: flex;
+    justify-content: center;
+  }
+  .inputNumber {
   border: none;
   background-color: $second-color;
   border-radius: 5px;
@@ -50,12 +51,12 @@
   margin-bottom: 1.5rem;
   width: 15%;
   color: white;
-}
-.formAddQuantity {
+  }
+  .formAddQuantity {
   border-radius: 15px;
   border: none;
   margin: auto;
   background-color: $second-color;
   color:white
-}
+  }
 }
