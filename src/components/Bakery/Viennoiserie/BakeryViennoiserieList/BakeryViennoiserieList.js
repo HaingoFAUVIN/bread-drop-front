@@ -1,100 +1,50 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Modal from '../../Modal/Modal';
-import viennoiserie from './viennoiserie.jpg';
+import viennoiserieImg from './viennoiserie.jpg';
 import './styles.scss';
 
-function BakeryViennoiserieList() {
+function BakeryViennoiserieList({ viennoiseries }) {
   const [openModal, setOpenModal] = useState(false);
+
   return (
     <section className="container">
       {openModal && <Modal closeModal={setOpenModal} />}
-      <div className="card">
-        <div className="card-image">
-          <img className="imageCard" src={viennoiserie} alt="VIENNOISERIE" />
-        </div>
-        <h2 className="card-title">VIENNOISERIE</h2>
-        <div className="card-infos">
-          <div className="card-priceQuantite">
-            <p>1€</p>
-            <p>En Stock</p>
+      {viennoiseries.map((viennoiserie) => (
+        <div className="card" key={viennoiserie.id}>
+          <div className="card-image">
+            <img className="imageCard" src={viennoiserie.picture || viennoiserieImg} alt="VIENNOISERIE" />
           </div>
-          <Link
-            className="OpenModal"
-            onClick={() => {
-              setOpenModal(true);
-            }}
-          >
-            <AddCircleOutlineIcon />
-          </Link>
-        </div>
-      </div>
-
-      <div className="card">
-        <div className="card-image">
-          <img className="imageCard" src={viennoiserie} alt="VIENNOISERIE" />
-        </div>
-        <h2 className="card-title">VIENNOISERIE</h2>
-        <div className="card-infos">
-          <div className="card-priceQuantite">
-            <p>1€</p>
-            <p>En Stock</p>
+          <h2 className="card-title">{viennoiserie.name}</h2>
+          <div className="card-infos">
+            <div className="card-priceQuantite">
+              <p>{viennoiserie.price}€</p>
+              <p>En Stock</p>
+            </div>
+            <Link
+              className="OpenModal"
+              onClick={() => {
+                setOpenModal(true);
+              }}
+            >
+              <AddCircleOutlineIcon />
+            </Link>
           </div>
-          <Link
-            className="OpenModal"
-            onClick={() => {
-              setOpenModal(true);
-            }}
-          >
-            <AddCircleOutlineIcon />
-          </Link>
         </div>
-      </div>
-
-      <div className="card">
-        <div className="card-image">
-          <img className="imageCard" src={viennoiserie} alt="VIENNOISERIE" />
-        </div>
-        <h2 className="card-title">VIENNOISERIE</h2>
-        <div className="card-infos">
-          <div className="card-priceQuantite">
-            <p>1€</p>
-            <p>En Stock</p>
-          </div>
-          <Link
-            className="OpenModal"
-            onClick={() => {
-              setOpenModal(true);
-            }}
-          >
-            <AddCircleOutlineIcon />
-          </Link>
-        </div>
-      </div>
-
-      <div className="card">
-        <div className="card-image">
-          <img className="imageCard" src={viennoiserie} alt="VIENNOISERIE" />
-        </div>
-        <h2 className="card-title">VIENNOISERIE</h2>
-        <div className="card-infos">
-          <div className="card-priceQuantite">
-            <p>1€</p>
-            <p>En Stock</p>
-          </div>
-          <Link
-            className="OpenModal"
-            onClick={() => {
-              setOpenModal(true);
-            }}
-          >
-            <AddCircleOutlineIcon />
-          </Link>
-        </div>
-      </div>
+      ))}
     </section>
   );
 }
+
+BakeryViennoiserieList.propTypes = {
+  viennoiseries: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    picture: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+  })).isRequired,
+};
 
 export default BakeryViennoiserieList;

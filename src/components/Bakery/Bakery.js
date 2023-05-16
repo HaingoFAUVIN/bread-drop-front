@@ -1,4 +1,7 @@
+import axios from 'axios';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Footer from '../Home/Footer/Footer';
 
 // --- COMPOSANTS
@@ -22,6 +25,56 @@ function Bakery({
   isVisible4,
   setIsVisible4,
 }) {
+  const { id } = useParams();
+  console.log(id.id);
+
+  const [bakery, setBakery] = useState(null);
+  const [pastries, setPastries] = useState([]);
+  const [viennoiseries, setViennoiseries] = useState([]);
+  const [breads, setBreads] = useState([]);
+  const [sandwiches, setSandwiches] = useState([]);
+
+  const api = axios.create({
+    baseURL: 'http://davyvistel-server.eddi.cloud/',
+    headers: {
+      Authorization: 'Bearer',
+    },
+  });
+
+  useEffect(() => {
+    const fetchBakery = async () => {
+      try {
+        const response = await api.get(`api/boulangeries/${id}`);
+        console.log(response.data);
+        setBakery(response.data);
+
+        const pastriesData = response.data.product.filter(
+          (product) => product.category.name === 'Pâtisserie',
+        );
+        setPastries(pastriesData);
+
+        const viennoiseriesData = response.data.product.filter(
+          (product) => product.category.name === 'Viennoiserie',
+        );
+        setViennoiseries(viennoiseriesData);
+
+        const breadsData = response.data.product.filter(
+          (product) => product.category.name === 'Pain',
+        );
+        setBreads(breadsData);
+
+        const sandwichesData = response.data.product.filter(
+          (product) => product.category.name === 'Sandwitch',
+        );
+        setSandwiches(sandwichesData);
+      }
+      catch (erreur) {
+        console.log(erreur);
+      }
+    };
+    fetchBakery();
+  }, [id]);
+
   return (
     <>
       {/* SUPPRIMER LA NAV AVANT DE PULL */}
@@ -29,14 +82,13 @@ function Bakery({
 
       <BakeryBanner />
       <BakerySearchProducts />
-      <Bread isVisible={isVisible} setIsVisible={setIsVisible} />
-      <Pastry isVisible2={isVisible2} setIsVisible2={setIsVisible2} />
-      <Viennoiserie isVisible3={isVisible3} setIsVisible3={setIsVisible3} />
-      <Sandwich isVisible4={isVisible4} setIsVisible4={setIsVisible4} />
+      <Bread isVisible={isVisible} setIsVisible={setIsVisible} breads={breads} />
+      <Pastry isVisible2={isVisible2} setIsVisible2={setIsVisible2} pastries={pastries} />
+      <Viennoiserie isVisible3={isVisible3} setIsVisible3={setIsVisible3} viennoiseries={viennoiseries} />
+      <Sandwich isVisible4={isVisible4} setIsVisible4={setIsVisible4} sandwiches={sandwiches} />
 
       {/* SUPPRIMER LE FOOTER AVANT DE PULL */}
       <Footer />
-
     </>
   );
 }
@@ -51,4 +103,5 @@ Bakery.propTypes = {
   isVisible4: PropTypes.bool.isRequired,
   setIsVisible4: PropTypes.func.isRequired,
 };
+
 export default Bakery;

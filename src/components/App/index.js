@@ -11,6 +11,7 @@ import Bakery from '../Bakery/Bakery';
 
 import Orders from '../Profile/Orders';
 import Basket from '../Basket/Basket';
+import EditProfile from '../Profile/EditProfile';
 
 function App() {
   const [isVisible, setIsVisible] = useState(true);
@@ -26,11 +27,12 @@ function App() {
         <Route path="/inscription-pro" element={<CheckInPro />} />
         <Route path="/home" element={<Home />} />
         <Route
-          path="/boulangerie-produit"
+          path="/boulangeries/:id"
           // eslint-disable-next-line max-len
           element={<Bakery isVisible={isVisible} setIsVisible={setIsVisible} isVisible2={isVisible2} setIsVisible2={setIsVisible2} isVisible3={isVisible3} setIsVisible3={setIsVisible3} isVisible4={isVisible4} setIsVisible4={setIsVisible4} />}
         />
         <Route path="/profil" element={<Orders />} />
+        <Route path="edit-profil" element={<EditProfile />} />
         <Route path="/panier" element={<Basket />} />
       </Routes>
     </Router>
