@@ -1,41 +1,59 @@
 import './Login.scss';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useState } from 'react';
 import loginImage from '../../../assets/Login.jpg';
 
 function Login() {
+  const [username, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const api = axios.create({
+    baseURL: 'http://davyvistel-server.eddi.cloud/',
+  });
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await api.post('api/login_check', {
+        username,
+        password,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
+
   return (
     <div className="login-page">
       <div className="login-form-section">
         <h1 className="title">Se Connecter</h1>
-        <form>
+        <form onSubmit={handleLogin}>
           <div className="input-group">
             <p>Adresse e-mail</p>
-            <input type="email" placeholder="Email" />
+            <input type="username" placeholder="Email" value={username} onChange={(event) => setEmail(event.target.value)} />
           </div>
           <div className="input-group">
             <p>Mot de Passe</p>
-            <input type="password" placeholder="Mot de passe" />
+            <input type="password" placeholder="Mot de passe" value={password} onChange={(event) => setPassword(event.target.value)} />
           </div>
 
           <div className="button-group">
             <button className="form-button" type="submit">Connexion</button>
-            <p className="form-text">Se connecter avec</p>
-            <button className="form-button pro-button" type="submit">BreadDrop Pro</button>
-            <div className="triangle-card">
-              <p>Vous possédez une boulangerie ?
-                Connectez-vous à BreadDrop Pro pour accéder à votre tableau de bord !
-              </p>
-            </div>
-          </div>
-
-          <hr />
-
-          <div className="first-time-section">
-            <p>Première Fois ?</p>
-            <div className="button-group">
-              <button className="form-button registration-button" type="submit">Inscription</button>
-            </div>
           </div>
         </form>
+
+        <hr />
+
+        <div className="first-time-section">
+          <p>Première Fois ?</p>
+          <div className="button-group">
+            <Link to="/inscription" className="form-button registration-button">
+              Inscription
+            </Link>
+          </div>
+        </div>
       </div>
 
       <div className="login-image-section">

@@ -40,7 +40,7 @@ function Nav() {
           <ShoppingCartIcon fontSize="small" />
           Panier
         </Link>
-        <Link to="/connexion-pro" className="navbar-item navbar-pro">
+        <Link to="?" className="navbar-item navbar-pro">
           BreadDrop Pro
         </Link>
         <Link to="/inscription" className="navbar-item navbar-inscription">
@@ -50,13 +50,13 @@ function Nav() {
           Connexion
         </Link>
         <Link to="/" className="navbar-profile">
-          <img className='navbar-profile-img' src={profileImg} alt="profile" height="50" width="50" />
+          <img className="navbar-profile-img" src={profileImg} alt="profile" height="50" width="50" />
         </Link>
       </div>
-      <div id='overlay' className={isOverlayVisible ? "overlay--active" : ""} style={{ display: isOverlayVisible ? "block" : "none" }}>
-        <button className="navbar-responsive-close-button" onClick={handleCloseOverlay}><CloseIcon fontSize='large' /></button>
+      <div id="overlay" className={isOverlayVisible ? "overlay--active" : ""} style={{ display: isOverlayVisible ? "block" : "none" }}>
+        <button type="button" className="navbar-responsive-close-button" onClick={handleCloseOverlay}> <CloseIcon fontSize="large" /></button>
         <div className="navbar-responsive-menu">
-          <div className='overlay-top'>
+          <div className="overlay-top">
             <Link to="/" className="navbar-mobile-item navbar-panier">
               Mon compte
             </Link>
