@@ -53,6 +53,7 @@ function Modal({ closeModal, product }) {
         <div className="modal-other">
           <h2 className="modal-likes">Vous aimerez peut-être ceci</h2>
           <div className="modal-pictures">
+            {/* METTRE EN DYNAMIQUE LES SRC */}
             <img src={viennoiserie} alt="viennoiserie" className="modal-otherPicture" />
             <img src={viennoiserie} alt="viennoiserie" className="modal-otherPicture" />
             <img src={viennoiserie} alt="viennoiserie" className="modal-otherPicture" />
