@@ -48,7 +48,7 @@
     justify-content: space-between;
     margin: 20px 0;
 
-    button {
+    .button-link {
       padding: 10px;
       font-size: 1em;
       cursor: pointer;
@@ -57,14 +57,12 @@
       background-color: #d9d9d9;
       border-radius: 10px;
       border: none;
+      color: black;
+      text-decoration: none;
+      text-align: center;
 
       &:first-child {
         background-color: #47beed;
-        color: black;
-      }
-
-      &:last-child {
-        color: black;
       }
     }
   }
@@ -103,10 +101,6 @@
             margin: 10px;
           }
         }
-      }
-
-      hr {
-        border-top: 1px solid #000;
       }
 
       .item {
@@ -172,6 +166,7 @@
         .header {
           flex-direction: row;
           align-items: center;
+          border-bottom: 1px solid black;
   
           img {
             width: 300px;
@@ -193,6 +188,7 @@
               p#date {
                 margin-left: auto;
                 width: 100px;
+                align-self: center;
             }
           }
         }
