@@ -7,6 +7,7 @@ import Home from '../Home/Home';
 import Login from '../User/Login/Login';
 import CheckIn from '../User/CheckIn/CheckIn';
 import Bakery from '../Bakery/Bakery';
+import NotFound from '../NotFound/NotFound';
 
 import Orders from '../Profile/Orders';
 import Basket from '../Basket/Basket';
@@ -25,7 +26,6 @@ function App() {
         <Routes>
           <Route path="/inscription" element={<CheckIn />} />
           <Route path="/connexion" element={<Login />} />
-          <Route path="/inscription-pro" element={<CheckInPro />} />
           <Route path="/home" element={<Home />} />
           <Route
             path="/boulangeries/:id"
@@ -35,6 +35,7 @@ function App() {
           <Route path="/profil" element={<Orders />} />
           <Route path="edit-profil" element={<EditProfile />} />
           <Route path="/panier" element={<Basket />} />
+          <Route path="*" element=<NotFound /> />
         </Routes>
       </Router>
     </CartProvider>
