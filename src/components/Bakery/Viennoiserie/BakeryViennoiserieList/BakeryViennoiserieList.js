@@ -49,7 +49,7 @@ BakeryViennoiserieList.propTypes = {
     id: PropTypes.number.isRequired,
     picture: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
   })).isRequired,
 };
 
