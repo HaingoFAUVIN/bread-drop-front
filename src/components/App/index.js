@@ -6,7 +6,6 @@ import { CartProvider } from '../../contexts/CartContext'; // Assurez-vous que l
 import Home from '../Home/Home';
 import Login from '../User/Login/Login';
 import CheckIn from '../User/CheckIn/CheckIn';
-import CheckInPro from '../User/CheckInPro/CheckInPro';
 import Bakery from '../Bakery/Bakery';
 
 import Orders from '../Profile/Orders';
@@ -20,6 +19,7 @@ function App() {
   const [isVisible4, setIsVisible4] = useState(true);
 
   return (
+
     <CartProvider>
       <Router>
         <Routes>

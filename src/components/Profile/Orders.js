@@ -14,14 +14,14 @@ function Orders() {
         <div className="user-details">
           <img className="user-image" src={UserPic} alt="Jean Dupont" />
           <div className="name-address">
-            <h1>Jean Dupont</h1>
-            <p>456 Boulevard Saint-Germain</p>
+            <h1>Rover</h1>
+            <p>Planète Mars</p>
           </div>
         </div>
       </div>
       <div className="buttons">
-        <Link to="/profil" className="navbar-logo-image"> Commandes Récentes</Link>
-        <Link to="/edit-profil" className="navbar-logo-image"> Modifier mon profil</Link>
+        <Link to="/profil" className="button-link"> Commandes </Link>
+        <Link to="/edit-profil" className="button-link"> Modifier mon profil</Link>
       </div>
       <div className="orders-list">
         <div className="order">
@@ -33,7 +33,6 @@ function Orders() {
               <p className="date" id="date">01-05-2023</p>
             </div>
           </div>
-          <hr />
           <div className="item">
             <p>Baguette</p>
             <p>1.5€</p>
@@ -56,7 +55,6 @@ function Orders() {
               <p className="date" id="date">01-05-2023</p>
             </div>
           </div>
-          <hr />
           <div className="item">
             <p>Baguette</p>
             <p>1.5€</p>

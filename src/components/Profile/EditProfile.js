@@ -13,22 +13,17 @@ function EditProfile() {
         <div className="user-details">
           <img className="user-image" src={UserPic} alt="Jean Dupont" />
           <div className="name-address">
-            <h1>Jean Dupont</h1>
-            <p>456 Boulevard Saint-Germain</p>
-            <div className="buttons">
-              <button type="button">Modifier mon pseudo</button>
-              <button type="button">Modifier mon adresse</button>
-            </div>
+            <h1>Rover</h1>
+            <p>Planète Mars</p>
           </div>
         </div>
       </div>
       <div className="buttons">
-        <Link to="/profil" className="navbar-logo-image"> Commandes Récentes</Link>
-        <Link to="/edit-profil" className="navbar-logo-image"> Modifier mon profil</Link>
+        <Link to="/profil" className="button-link"> Commandes </Link>
+        <Link to="/edit-profil" className="button-link"> Modifier mon profil</Link>
       </div>
       <div className="account">
         <div className="account-info">
-          <h2>Compte</h2>
           <p>Adresse-email</p>
           <button type="button">Modifier</button>
         </div>
