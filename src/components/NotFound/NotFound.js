@@ -5,7 +5,7 @@ import './styles.scss';
 
 function NotFound() {
   return (
-    <body className="bodyNotFound">
+    <div className="bodyNotFound">
       <div className="containerNotFound">
         <h2 className="containerNotFound-title">Oops ! Page non trouvée</h2>
         <h1 className="containerNotFound-404">404</h1>
@@ -14,7 +14,7 @@ function NotFound() {
           Page d'accueil
         </Link>
       </div>
-    </body>
+    </div>
   );
 }
 
