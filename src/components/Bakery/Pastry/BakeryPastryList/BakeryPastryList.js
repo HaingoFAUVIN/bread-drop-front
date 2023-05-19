@@ -49,7 +49,7 @@ BakeryPastryList.propTypes = {
     id: PropTypes.number.isRequired,
     picture: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
   })).isRequired,
 };
 

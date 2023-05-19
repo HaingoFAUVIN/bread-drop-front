@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from '../../contexts/CartContext'; // Assurez-vous que le chemin est correct
 
 import Home from '../Home/Home';
+import { UserProvider } from '../Profile/UserContext';
 import Login from '../User/Login/Login';
 import CheckIn from '../User/CheckIn/CheckIn';
 import Bakery from '../Bakery/Bakery';
@@ -20,12 +21,15 @@ function App() {
 
   return (
 
+    <UserProvider>
+
+
     <CartProvider>
+
       <Router>
         <Routes>
           <Route path="/inscription" element={<CheckIn />} />
           <Route path="/connexion" element={<Login />} />
-          <Route path="/inscription-pro" element={<CheckInPro />} />
           <Route path="/home" element={<Home />} />
           <Route
             path="/boulangeries/:id"
@@ -37,7 +41,10 @@ function App() {
           <Route path="/panier" element={<Basket />} />
         </Routes>
       </Router>
+
+    </UserProvider>
     </CartProvider>
+
   );
 }
 

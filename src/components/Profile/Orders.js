@@ -1,21 +1,26 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from './UserContext';
 import Nav from '../Home/Header/Nav/Nav';
-import UserPic from '../../assets/User.jpg';
+// import UserPic from '../../assets/User.jpg';
 import Banner from '../../assets/UserBanner.png';
 import Bakery from '../../assets/Bakery.jpg';
 import './Orders.scss';
 
 function Orders() {
+  const { user } = useContext(UserContext);
+  console.log(user);
+
   return (
     <div className="orders">
       <Nav />
       <div className="user-banner">
         <img className="banner-image" src={Banner} alt="Banner" />
         <div className="user-details">
-          <img className="user-image" src={UserPic} alt="Jean Dupont" />
+          <img className="user-image" src={user?.picture} alt="Jean Dupont" />
           <div className="name-address">
-            <h1>Rover</h1>
-            <p>Planète Mars</p>
+            <h1>{user?.username}</h1>
+            <p>{user?.adress}</p>
           </div>
         </div>
       </div>
