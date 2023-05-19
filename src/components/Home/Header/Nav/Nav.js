@@ -60,12 +60,6 @@ function Nav() {
             <Link to="/" className="navbar-mobile-item navbar-panier">
               Mon compte
             </Link>
-            <div className="adress-mobile-input">
-              <IconTextField
-                label="Entrez votre adresse"
-                iconStart={<AddLocationIcon sx={{ color: "green", fontSize: 20 }} />}
-              />
-            </div>
             <Link to="/connexion-pro" className="navbar-mobile-item navbar-pro">
               BreadDrop Pro
             </Link>

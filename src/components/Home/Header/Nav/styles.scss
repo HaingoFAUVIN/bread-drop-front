@@ -127,14 +127,26 @@
 }
 
 
+@media screen and (max-height: 450px) {
+  .navbar-responsive-open-button, .navbar-profile-img {
+    display: block;
+}
+
+.navbar-pro, .navbar-inscription, .navbar-connexion {
+    display: none;
+}
+}
 
 @media only screen and (max-width: 800px) {
   .navbar-responsive-open-button, .navbar-profile-img {
       display: block;
   }
 
-  .navbar-item, .adress-input {
-      display: none;
+  .navbar-item {
+      display: none !important;
   }
 
+  .navbar-panier {
+      display: block !important;
+  }
 }

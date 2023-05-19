@@ -23,7 +23,6 @@ function Modal({ closeModal, product }) {
       try {
         const response = await api.get(`api/produit/${product.id}`);
         setProductDetails(response.data);
-        console.log(response.data);
       }
       catch (error) {
         console.log(error);
@@ -60,7 +59,7 @@ function Modal({ closeModal, product }) {
           </div>
         </div>
         <div className="modal-choice">
-          <QuantityForm />
+          <QuantityForm product={product} />
         </div>
       </div>
     </div>
