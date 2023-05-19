@@ -14,38 +14,40 @@
       top: 20px;
       left: 20px;
       display: flex;
-      flex-direction: column;
       color: white;
 
       .user-image {
         border-radius: 50%;
         width: 100px;
-        height: 100px; 
+        height: 100px;
         object-fit: cover;
         margin-bottom: 20px;
       }
 
       .name-address {
-        h1 {
-          margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 15px;
+
+        h1, p {
           font-size: 1.6em;
-          margin-bottom: 10px;
+          margin: 0 0 10px;
         }
 
         p {
-          margin: 0;
           font-size: 1em;
-          margin-bottom: 10px;
         }
 
-        .buttons {
+        .edit-row {
           display: flex;
           justify-content: space-between;
-          width: 100%;
+          align-items: center;
+          margin-bottom: 10px;
 
           button {
             padding: 10px;
-            font-size: 1em;
+            font-size: 0.8em;
             cursor: pointer;
             background-color: #47beed;
             border-radius: 10px;
@@ -62,7 +64,7 @@
     justify-content: space-between;
     margin: 20px 0;
 
-    button {
+    .button-link {
       padding: 10px;
       font-size: 1em;
       cursor: pointer;
@@ -70,10 +72,12 @@
       margin: 0 10px;
       background-color: #d9d9d9;
       border-radius: 10px;
-      border: none;  // Add semicolon here
+      border: none;
       color: black;
+      text-decoration: none;
+      text-align: center;
 
-      &:first-child {
+      &:last-child {
         background-color: #47beed;
       }
     }
@@ -112,13 +116,13 @@
       height: auto;
 
       .banner-image {
-        height: 400px; 
+        height: 400px;
         object-fit: cover;
       }
 
       .user-details {
         flex-direction: row;
-        align-items: flex-start; 
+        align-items: flex-start;
 
         .user-image {
           width: 200px;
@@ -127,27 +131,28 @@
 
         .name-address {
           margin-left: 20px;
-          margin-top: 2rem; 
-          flex-direction: column;
+          margin-top: 2rem;
 
           h1 {
             font-size: 2em;
-            margin-bottom: 2rem; 
+            margin-bottom: 2rem;
           }
 
-          p {
-            font-size: 1.2em;
-          }
+          .edit-row {
+            p {
+              font-size: 1.2em;
+            }
 
-          .buttons {
-            margin-top: 2rem;
+            button {
+              font-size: 1.2em;
+            }
           }
         }
-      }
+     
     }
 
     .buttons {
-      button {
+      .button-link {
         font-size: 1.2em;
       }
     }
@@ -161,4 +166,4 @@
     }
   }
 }
-     
+}

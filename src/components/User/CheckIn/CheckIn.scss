@@ -62,7 +62,7 @@
         p {
           color: white;
           margin-bottom: 15px;
-          text-align: left;  
+          text-align: left;
         }
       
         input {
@@ -80,36 +80,6 @@
         flex-direction: column;
         align-items: center;
         position: relative;
-
-        .checkin-button::after {
-            content: "";
-            position: absolute;
-            right: -20px;
-            transform: translateY(-50%); 
-            border-top: 20px solid transparent;
-            border-bottom: 20px solid transparent;
-            border-right: 20px solid #d9d9d9;
-            width: 0;
-            height: 0;
-            pointer-events: none;
-        }
-
-        .triangle-card {
-          position: absolute;
-          left: 104%; 
-          transform: translateX(0px); 
-          top: 50%; 
-          transform: translateY(-50%);
-          background-color: rgba(255, 255, 255, 0.5); 
-          padding: 20px; 
-          width: 380px;
-          height: auto; 
-          border-radius: 10px;
-          text-align: center; 
-          p {
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4); 
-          }
-        }
 
         .form-button {
           margin: 10px 0;
