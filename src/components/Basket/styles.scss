@@ -58,6 +58,7 @@
           position: absolute;
           bottom: 10px;
           width: 30%;
+          display: none;
         }
       }
 
@@ -113,6 +114,15 @@
 
         &-text {
           width: 25%;
+
+          
+          &-title {
+            margin-bottom: 5rem;
+          }
+
+          &-description {
+            display: block;
+          }
         }
 
         &-price {
@@ -142,6 +152,18 @@
 
         &-text {
           width: 40%;
+
+          &-title {
+            margin-bottom: 5rem;
+          }
+
+          &-description {
+            display: block;
+          }
+        }
+
+        &-description {
+          display: block;
         }
 
         &-price {

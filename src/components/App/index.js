@@ -1,7 +1,7 @@
 import { useState } from 'react';
-
 import './styles.scss';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { CartProvider } from '../../contexts/CartContext'; // Assurez-vous que le chemin est correct
 
 import Home from '../Home/Home';
 import { UserProvider } from '../Profile/UserContext';
@@ -20,7 +20,12 @@ function App() {
   const [isVisible4, setIsVisible4] = useState(true);
 
   return (
+
     <UserProvider>
+
+
+    <CartProvider>
+
       <Router>
         <Routes>
           <Route path="/inscription" element={<CheckIn />} />
@@ -36,7 +41,10 @@ function App() {
           <Route path="/panier" element={<Basket />} />
         </Routes>
       </Router>
+
     </UserProvider>
+    </CartProvider>
+
   );
 }
 

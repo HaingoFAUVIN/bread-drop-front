@@ -3,8 +3,13 @@
 import { useState } from 'react';
 import './styles.scss';
 
-function QuantityForm() {
+import { useContext } from 'react';
+import { CartContext } from '../../../contexts/CartContext';
+import './styles.scss';
+
+function QuantityForm({ product }) {
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useContext(CartContext);
 
   const handleQuantityChange = (event) => {
     setQuantity(event.target.value);
@@ -12,10 +17,8 @@ function QuantityForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Faire quelque chose avec la quantité choisie, comme l'envoyer à un serveur ou la stocker localement.
-    // console.log(quantity);
+    addToCart(product, quantity);
   };
-
   return (
     <form onSubmit={handleSubmit} className="formQuantity">
       <label className="labelQuantity">
