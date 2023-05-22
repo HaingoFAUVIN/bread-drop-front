@@ -23,6 +23,8 @@
     flex-wrap: wrap;
     padding-top: 60px;
     gap: 2rem; // Ajout d'un espace entre les divs
+    display: flex;
+    justify-content: space-around;
   }
 
   &-linkOne,
@@ -31,6 +33,11 @@
     flex-direction: column;
     gap: 1rem;
     margin: 1rem 0;
+    width: 30%;
+  }
+
+  &-linkTwo {
+    text-align: end;
   }
 
   &-link1,
@@ -39,7 +46,7 @@
   &-link4,
   &-link5,
   &-link6 {
-    background-color: $base-color;
+    color: white;
   }
 
   &-sociaux {
@@ -48,6 +55,7 @@
     margin-top: 1.5rem;
     border-radius: 1rem;
     gap: 1rem;
+    padding-bottom: 2rem;
   }
 
   &-sociaux-icons {

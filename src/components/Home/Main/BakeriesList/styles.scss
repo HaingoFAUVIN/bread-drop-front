@@ -4,12 +4,26 @@
     width: 80%;
     color: #fff;
     margin: 0 auto;
+
     &-search {
         background-color: $second-color;
         border: none;
         border-radius: 5px;
         padding: 1rem;
         width: 50%;
+    }
+
+    .bakerie-search::placeholder {
+      color: #fff;
+    }
+    
+    .bakerie-search::-moz-placeholder {
+      color: #fff;
+      opacity: 1;  
+    }
+    
+    .bakerie-search:-ms-input-placeholder {
+      color: #fff;
     }
 
     &-section-title {

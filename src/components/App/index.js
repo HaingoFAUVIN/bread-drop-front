@@ -23,27 +23,27 @@ function App() {
 
     <UserProvider>
 
+      <CartProvider>
 
-    <CartProvider>
+        <Router>
+          <Routes>
+            <Route path="/inscription" element={<CheckIn />} />
+            <Route path="/connexion" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route
+              path="/boulangeries/:id"
+              // eslint-disable-next-line max-len
+              element={<Bakery isVisible={isVisible} setIsVisible={setIsVisible} isVisible2={isVisible2} setIsVisible2={setIsVisible2} isVisible3={isVisible3} setIsVisible3={setIsVisible3} isVisible4={isVisible4} setIsVisible4={setIsVisible4} />}
+            />
+            <Route path="/profil" element={<Orders />} />
+            <Route path="edit-profil" element={<EditProfile />} />
+            <Route path="/panier" element={<Basket />} />
+          </Routes>
+        </Router>
 
-      <Router>
-        <Routes>
-          <Route path="/inscription" element={<CheckIn />} />
-          <Route path="/connexion" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route
-            path="/boulangeries/:id"
-            // eslint-disable-next-line max-len
-            element={<Bakery isVisible={isVisible} setIsVisible={setIsVisible} isVisible2={isVisible2} setIsVisible2={setIsVisible2} isVisible3={isVisible3} setIsVisible3={setIsVisible3} isVisible4={isVisible4} setIsVisible4={setIsVisible4} />}
-          />
-          <Route path="/profil" element={<Orders />} />
-          <Route path="edit-profil" element={<EditProfile />} />
-          <Route path="/panier" element={<Basket />} />
-        </Routes>
-      </Router>
+      </CartProvider>
 
     </UserProvider>
-    </CartProvider>
 
   );
 }
