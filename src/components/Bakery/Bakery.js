@@ -26,8 +26,8 @@ function Bakery({
   setIsVisible4,
 }) {
   const { id } = useParams();
-
   const [bakery, setBakery] = useState(null);
+
   const [pastries, setPastries] = useState([]);
   const [viennoiseries, setViennoiseries] = useState([]);
   const [breads, setBreads] = useState([]);
@@ -76,17 +76,15 @@ function Bakery({
 
   return (
     <>
-      {/* SUPPRIMER LA NAV AVANT DE PULL */}
       <Nav />
 
-      <BakeryBanner />
+      <BakeryBanner bakery={bakery} />
       <BakerySearchProducts />
       <Bread isVisible={isVisible} setIsVisible={setIsVisible} breads={breads} />
       <Pastry isVisible2={isVisible2} setIsVisible2={setIsVisible2} pastries={pastries} />
       <Viennoiserie isVisible3={isVisible3} setIsVisible3={setIsVisible3} viennoiseries={viennoiseries} />
       <Sandwich isVisible4={isVisible4} setIsVisible4={setIsVisible4} sandwiches={sandwiches} />
 
-      {/* SUPPRIMER LE FOOTER AVANT DE PULL */}
       <Footer />
     </>
   );
