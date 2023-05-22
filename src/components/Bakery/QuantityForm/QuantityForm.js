@@ -1,9 +1,8 @@
+import PropTypes from 'prop-types';
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable max-len */
-import { useState } from 'react';
-import './styles.scss';
+import { useState, useContext } from 'react';
 
-import { useContext } from 'react';
 import { CartContext } from '../../../contexts/CartContext';
 import './styles.scss';
 
@@ -35,5 +34,9 @@ function QuantityForm({ product }) {
     </form>
   );
 }
+
+QuantityForm.propTypes = {
+  product: PropTypes.array.isRequired,
+};
 
 export default QuantityForm;

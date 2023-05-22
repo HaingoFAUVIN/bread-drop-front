@@ -6,7 +6,8 @@
   flex-direction: column;
   font-size: 19px;
   padding: 0.5rem;
-  
+  height: 10vh;
+ 
 }
 .labelQuantity{
   display: flex;
@@ -28,35 +29,4 @@
   margin: auto;
   background-color: $second-color;
   color:white
-}
-
-@media screen and (max-width:800px) {
-  .formQuantity{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  font-size: 19px;
-  padding: 0.5rem; 
-  }
-  
-  .labelQuantity{
-    display: flex;
-    justify-content: center;
-  }
-  .inputNumber {
-  border: none;
-  background-color: $second-color;
-  border-radius: 5px;
-  margin-left: 1rem;
-  margin-bottom: 1.5rem;
-  width: 15%;
-  color: white;
-  }
-  .formAddQuantity {
-  border-radius: 15px;
-  border: none;
-  margin: auto;
-  background-color: $second-color;
-  color:white
-  }
 }
