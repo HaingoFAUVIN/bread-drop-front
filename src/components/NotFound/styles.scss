@@ -1,0 +1,80 @@
+@import '../../styles/vars.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+.bodyNotFound {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  // background-image: linear-gradient(180deg,#2d707e,#47beed,#2d707e);
+  background-image: linear-gradient(180deg,#2d707e,#2887ac,#47beed,#47beed,#2887ac,#2d707e);
+  font-family: "montserrat", sans-serif;  
+  font-size: 24px;
+}
+
+.containerNotFound{
+  width: 100%;
+  position: absolute;
+  top: 50%; // Centre au milieu
+  transform: translateY(-50%); // Ajustement centrage
+  text-align: center;
+  color: #343434;
+
+
+  &-404 {
+    font-size: 200px;
+    margin: 0;
+    font-weight: 900;
+    letter-spacing: 20px;
+    background: url(./painachat1.jpg) center no-repeat;
+    -webkit-text-fill-color: transparent; // 404 transparent
+    -webkit-background-clip: text; // image sur 404
+  }
+
+  &-RedirectionHome {
+    text-decoration: none;
+    background: #c7945a;
+    color: #343434;
+    padding: 12px 24px;
+    display: inline-block;
+    border-radius: 25px;
+    margin-top: 2rem;
+  }
+
+  &-RedirectionHome:hover {
+    background: #e7a24d ;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .bodyNotFound {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    // background-image: linear-gradient(180deg,#2d707e,#47beed,#2d707e);
+    background-image: linear-gradient(180deg,#2d707e,#2887ac,#47beed,#47beed,#2887ac,#2d707e);
+    font-family: "montserrat", sans-serif;  
+    font-size: 20px;
+  }
+  
+    .containerNotFound-404 {
+      font-size: 150px;
+      margin: 0;
+      font-weight: 900;
+      letter-spacing: 10px;
+      background: url(./painachat1.jpg) center no-repeat;
+      -webkit-text-fill-color: transparent; // 404 transparent
+      -webkit-background-clip: text; // image sur 404
+    
+  
+    &-RedirectionHome {
+      text-decoration: none;
+      background: #c7945a;
+      color: #343434;
+      padding: 12px 24px;
+      display: inline-block;
+      border-radius: 25px;
+      margin-top: 2rem;
+    }
+  }
+}

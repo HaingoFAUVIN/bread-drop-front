@@ -1,5 +1,5 @@
 import './styles.scss';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -39,9 +39,9 @@ function Footer() {
         </div>
       </div>
       <div className="footer-sociaux">
-        <div className="footer-sociaux-icons"><InstagramIcon /></div>
-        <div className="footer-sociaux-icons"><FacebookIcon /></div>
-        <div className="footer-sociaux-icons"><TwitterIcon /></div>
+        <Link to="#" className="footer-sociaux-icons"><InstagramIcon /></Link>
+        <Link to="#" className="footer-sociaux-icons"><FacebookIcon /></Link>
+        <Link to="#" className="footer-sociaux-icons"><TwitterIcon /></Link>
       </div>
     </section>
   );
