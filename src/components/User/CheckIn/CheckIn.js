@@ -46,7 +46,7 @@ function CheckIn() {
             <input type="text" placeholder="Nom" value={lastname} onChange={(event) => setLastName(event.target.value)} />
           </div>
           <div className="input-group">
-            <p>Adresse e-mail</p>
+            <p>Prénom</p>
             <input type="text" placeholder="Prénom" value={firstname} onChange={(event) => setFirstName(event.target.value)} />
           </div>
           <div className="input-group">
