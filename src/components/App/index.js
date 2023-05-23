@@ -7,6 +7,7 @@ import { UserProvider } from '../../contexts/UserContext';
 import Login from '../User/Login/Login';
 import CheckIn from '../User/CheckIn/CheckIn';
 import Bakery from '../Bakery/Bakery';
+import NotFound from '../NotFound/NotFound';
 import Orders from '../Profile/Orders';
 import Basket from '../Basket/Basket';
 import EditProfile from '../Profile/EditProfile';
@@ -43,10 +44,11 @@ function App() {
             <Route path="/profil" element={<Orders />} />
             <Route path="edit-profil" element={<EditProfile />} />
             <Route path="/panier" element={<Basket />} />
+            <Route path="*" element=<NotFound /> />
           </Routes>
         </Router>
-      </CartProvider>
-    </UserProvider>
+    </CartProvider>
+  </UserProvider>
   );
 }
 

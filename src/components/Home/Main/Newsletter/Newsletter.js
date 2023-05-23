@@ -1,10 +1,10 @@
 import './styles.scss';
-import NewsletterImg from '../../../../assets/newsletterImg.jpg'
+import NewsletterImg from '../../../../assets/newsletterImg.jpg';
 
 function Newsletter() {
   return (
     <div className='newsletter'>
-        <div className='newsletter-element'>
+      <div className='newsletter-element'>
             <div className='newsletter-img-container'>
                 <img className='newsletter-img' src={NewsletterImg} alt="Boulangerie" />
             </div>
