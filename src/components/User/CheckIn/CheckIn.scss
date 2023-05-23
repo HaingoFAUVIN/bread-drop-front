@@ -23,6 +23,7 @@
       background-color: rgba(255, 255, 255, 0.4);
       padding: 20px;
       text-align: center;
+      border-radius: 10px;
 
       &--title {
         font-size: x-large;
@@ -131,6 +132,17 @@
     }
   }
 }
+
+.userSelection{
+  display: flex;
+  justify-content: center;
+}
+.roleUser{
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 767px) {
   .button-group .checkin-button::after,
   .button-group .triangle-card {

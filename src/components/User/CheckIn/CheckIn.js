@@ -61,14 +61,16 @@ function CheckIn() {
             <input type="text" placeholder="Adresse de Livraison" value={adress} onChange={(event) => setAdress(event.target.value)} />
           </div>
           <div className="input-group">
-            <p>Rôle</p>
-            <div>
-              <input type="radio" id="user" name="role" value="ROLE_USER" checked={role === "ROLE_USER"} onChange={(event) => setRole(event.target.value)} />
-              <label htmlFor="user"> Je suis seulement un Client </label>
-            </div>
-            <div>
-              <input type="radio" id="manager" name="role" value="ROLE_MANAGER" checked={role === "ROLE_MANAGER"} onChange={(event) => setRole(event.target.value)} />
-              <label htmlFor="manager"> Je suis à la fois Professionnel et Client</label>
+            <h6 className="roleUser">Role</h6>
+            <div className="userSelection">
+              <div>
+                <input type="radio" id="user" name="role" value="ROLE_USER" checked={role === "ROLE_USER"} onChange={(event) => setRole(event.target.value)} />
+                <label htmlFor="user"> Je suis un Client </label>
+              </div>
+              <div>
+                <input type="radio" id="manager" name="role" value="ROLE_MANAGER" checked={role === "ROLE_MANAGER"} onChange={(event) => setRole(event.target.value)} />
+                <label htmlFor="manager"> Je suis un Professionnel</label>
+              </div>
             </div>
           </div>
 
