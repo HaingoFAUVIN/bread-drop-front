@@ -15,7 +15,7 @@ function BakeriesList() {
   });
 
   const opencageApi = 'https://api.opencagedata.com/geocode/v1/json';
-  const opencageKey = '255c8a0da0cf451897955c3086cc1cff';
+  const opencageKey = '8e7e7e87dc8448fe9211186a02893df5';
 
   const [bakeriesList, setBakeriesList] = useState([]);
   const [schedules, setSchedules] = useState([]);
@@ -26,7 +26,6 @@ function BakeriesList() {
       const response = await api.get('api/boulangeries');
       const bakeriesWithCoords = await Promise.all(
         response.data.map(async (bakery) => {
-          console.log(bakery);
           const geoResponse = await axios.get(
             `${opencageApi}?q=${encodeURIComponent(bakery.adress)}&key=${opencageKey}`,
           );

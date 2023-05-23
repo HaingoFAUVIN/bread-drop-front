@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useContext } from 'react';
+import { UserContext } from '../../../../contexts/UserContext';
 import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -14,6 +15,7 @@ import './styles.scss';
 
 function Nav() {
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+  const { user, isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext);
 
   const handleOpenOverlay = () => {
     setIsOverlayVisible(true);
@@ -22,6 +24,12 @@ function Nav() {
   const handleCloseOverlay = () => {
     setIsOverlayVisible(false);
   };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('token');
+    setIsUserLoggedIn(false);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -43,21 +51,27 @@ function Nav() {
         <Link to="?" className="navbar-item navbar-pro">
           BreadDrop Pro
         </Link>
-        <Link to="/inscription" className="navbar-item navbar-inscription">
-          Inscription
-        </Link>
-        <Link to="/connexion" className="navbar-item navbar-connexion">
-          Connexion
-        </Link>
-        <Link to="/" className="navbar-profile">
-          <img className="navbar-profile-img" src={profileImg} alt="profile" height="50" width="50" />
-        </Link>
+        {isUserLoggedIn ? (
+          <Link to="/profil" className="navbar-profile">
+            <img className="navbar-profile-img" src={profileImg} alt="profile" height="50" width="50" />
+          </Link>
+        ) : (
+          <>
+            <Link to="/inscription" className="navbar-item navbar-inscription">
+              Inscription
+            </Link>
+            <Link to="/connexion" className="navbar-item navbar-connexion">
+              Connexion
+            </Link>
+          </>
+        )}
       </div>
+      
       <div id="overlay" className={isOverlayVisible ? "overlay--active" : ""} style={{ display: isOverlayVisible ? "block" : "none" }}>
         <button type="button" className="navbar-responsive-close-button" onClick={handleCloseOverlay}> <CloseIcon fontSize="large" /></button>
         <div className="navbar-responsive-menu">
           <div className="overlay-top">
-            <Link to="/" className="navbar-mobile-item navbar-panier">
+            <Link to="/profil" className="navbar-mobile-item navbar-panier">
               Mon compte
             </Link>
             <Link to="/connexion-pro" className="navbar-mobile-item navbar-pro">
@@ -65,12 +79,15 @@ function Nav() {
             </Link>
           </div>
           <div className='overlay-bottom'>
-            <Link to="/connexion" className="navbar-mobile-item navbar-connexion">
-              Connexion
-            </Link>
-            <Link to="/connexion" className="navbar-mobile-item navbar-connexion">
-              Déconnexion
-            </Link>
+            {isUserLoggedIn  ? (
+              <Link to="#" onClick={handleLogout} className="navbar-mobile-item navbar-connexion">
+                Déconnexion
+              </Link>
+            ) : (
+              <Link to="/connexion" className="navbar-mobile-item navbar-connexion">
+                Connexion
+              </Link>
+            )}
           </div>
         </div>
       </div>
