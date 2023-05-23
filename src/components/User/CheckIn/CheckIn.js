@@ -42,34 +42,34 @@ function CheckIn() {
         <form onSubmit={handleInscription}>
           <div className="input-group">
             <p>Nom</p>
-            <input type="text" placeholder="Nom" value={lastname} onChange={(event) => setLastName(event.target.value)} />
+            <input type="text" placeholder="Bread" value={lastname} onChange={(event) => setLastName(event.target.value)} />
           </div>
           <div className="input-group">
             <p>Prénom</p>
-            <input type="text" placeholder="Prénom" value={firstname} onChange={(event) => setFirstName(event.target.value)} />
+            <input type="text" placeholder="Drop" value={firstname} onChange={(event) => setFirstName(event.target.value)} />
           </div>
           <div className="input-group">
             <p>Adresse e-mail</p>
-            <input type="email" placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)} />
+            <input type="email" placeholder="123@email.com" value={email} onChange={(event) => setEmail(event.target.value)} />
           </div>
           <div className="input-group">
             <p>Mot de Passe</p>
-            <input type="password" placeholder="Mot de passe" value={password} onChange={(event) => setPassword(event.target.value)} />
+            <input type="password" placeholder="*****" value={password} onChange={(event) => setPassword(event.target.value)} />
           </div>
           <div className="input-group">
             <p>Adresse de Livraison</p>
-            <input type="text" placeholder="Adresse de Livraison" value={adress} onChange={(event) => setAdress(event.target.value)} />
+            <input type="text" placeholder="7 rue Bread Drop, 75000 paris" value={adress} onChange={(event) => setAdress(event.target.value)} />
           </div>
           <div className="input-group">
-            <h6 className="roleUser">Role</h6>
+            <h6 className="roleUser">Vous êtes ? </h6>
             <div className="userSelection">
               <div>
                 <input type="radio" id="user" name="role" value="ROLE_USER" checked={role === "ROLE_USER"} onChange={(event) => setRole(event.target.value)} />
-                <label htmlFor="user"> Je suis un Client </label>
+                <label htmlFor="user"> Professionnel</label>
               </div>
               <div>
                 <input type="radio" id="manager" name="role" value="ROLE_MANAGER" checked={role === "ROLE_MANAGER"} onChange={(event) => setRole(event.target.value)} />
-                <label htmlFor="manager"> Je suis un Professionnel</label>
+                <label htmlFor="manager"> Client </label>
               </div>
             </div>
           </div>
@@ -86,7 +86,7 @@ function CheckIn() {
         <div className="checkin-card">
           <h1 className="checkin-card--title">BreadDrop</h1>
           <br />
-          <p className="checkin-card--text">Inscrivez-vous en tant qu'utilisateur ou en tant que professionnel.</p>
+          <p className="checkin-card--text">Inscrivez-vous en tant qu'utilisateur ou bien professionnel.</p>
         </div>
       </div>
     </div>

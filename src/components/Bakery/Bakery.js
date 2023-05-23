@@ -51,24 +51,25 @@ function Bakery({
         const response = await api.get(`api/boulangeries/${id}`);
         console.log(response.data);
         setBakery(response.data);
+        console.log(response.data.products);
 
-        const pastriesData = response.data.product.filter(
-          (product) => product.category.name === 'Pâtisserie',
+        const pastriesData = response.data.products.filter(
+          (products) => products.category.name === 'Pâtisserie',
         );
         setPastries(pastriesData);
 
-        const viennoiseriesData = response.data.product.filter(
-          (product) => product.category.name === 'Viennoiserie',
+        const viennoiseriesData = response.data.products.filter(
+          (products) => products.category.name === 'Viennoiserie',
         );
         setViennoiseries(viennoiseriesData);
 
-        const breadsData = response.data.product.filter(
-          (product) => product.category.name === 'Pain',
+        const breadsData = response.data.products.filter(
+          (products) => products.category.name === 'Pain',
         );
         setBreads(breadsData);
 
-        const sandwichesData = response.data.product.filter(
-          (product) => product.category.name === 'Sandwitch',
+        const sandwichesData = response.data.products.filter(
+          (products) => products.category.name === 'Sandwitch',
         );
         setSandwiches(sandwichesData);
       }
@@ -86,14 +87,14 @@ function Bakery({
         ? <NotFound />
         : (
           <>
-          
+            <Nav />
             <BakeryBanner bakery={bakery} />
             <BakerySearchProducts />
             <Bread isVisible={isVisible} setIsVisible={setIsVisible} breads={breads} />
             <Pastry isVisible2={isVisible2} setIsVisible2={setIsVisible2} pastries={pastries} />
             <Viennoiserie isVisible3={isVisible3} setIsVisible3={setIsVisible3} viennoiseries={viennoiseries} />
             <Sandwich isVisible4={isVisible4} setIsVisible4={setIsVisible4} sandwiches={sandwiches} />
-    
+            <Footer />
           </>
         )
   );
