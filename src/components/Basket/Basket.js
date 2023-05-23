@@ -20,6 +20,8 @@ function Basket() {
   
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
+  const userid = sessionStorage.getItem('userId');
+
 
 const handlePayment = async () => {
   let [date, time] = dateTime.split('T');
@@ -31,7 +33,7 @@ const handlePayment = async () => {
     delivery: true,
     schedule: time,
     createdAt: new Date().toISOString(),
-    user: 1,
+    user: userid,
     products: cart.map(item => item.id)
   };
 

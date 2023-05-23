@@ -1,3 +1,5 @@
+@import '../../../styles/vars';
+
 .login-page {
   display: flex;
   justify-content: space-between;
@@ -23,6 +25,8 @@
       background-color: rgba(255, 255, 255, 0.4);
       padding: 20px;
       text-align: center;
+      border-radius: 10px;
+      color: black;
 
       &--title {
         font-size: x-large;
@@ -135,26 +139,31 @@
           color: white;
         }
       }
-
-      .first-time-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        p {
-          color: white;
-          margin-bottom: 15px;
-        }
-      }
-
-      hr {
-        width: 100%;
-        color: black;
-      }
     }
   }
 }
+
+.inscription{
+  background-color: $third-color;
+  border-radius: 10px;
+  margin: auto;
+  padding: .5rem;
+  margin-top: -2rem;
+}
+
+.paragraphe1{
+  margin-bottom: .4rem;
+}
+
+.first-time-section{
+  margin-bottom: .4rem;
+  padding-top: .4rem;
+}
+
+.second-time-section{
+  padding-bottom: .4rem;
+}
+
 @media (max-width: 767px) {
   .button-group .pro-button::after,
   .button-group .triangle-card {

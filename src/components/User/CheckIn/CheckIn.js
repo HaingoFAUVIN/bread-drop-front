@@ -28,7 +28,6 @@ function CheckIn() {
         password,
         adress,
         roles: [role],
-        createdAt: "now",
       });
       console.log(response.data);
     } catch (error) {
