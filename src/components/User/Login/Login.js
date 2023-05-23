@@ -50,16 +50,13 @@ function Login() {
             <button className="form-button" type="submit">Connexion</button>
           </div>
         </form>
-
-        <hr />
-
-        <div className="first-time-section">
-          <p>Première Fois ?</p>
-          <div className="button-group">
-            <Link to="/inscription" className="form-button registration-button">
-              Inscription
-            </Link>
-          </div>
+        <div className="inscription">
+          <Link to="/inscription" className="form-button registration-button">
+            <div className="first-time-section">
+              <p className="paragraphe1">Première fois sur BreadDrop ?</p>
+              <p className="paragraphe2">Inscrivez-vous</p>
+            </div>
+          </Link>
         </div>
       </div>
 
