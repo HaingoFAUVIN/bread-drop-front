@@ -75,7 +75,7 @@ module.exports = merge(common, {
     maxAssetSize: 512000,
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: paths.build,
     filename: '[name].[contenthash].js',
     publicPath: '/inscription',
   },
