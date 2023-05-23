@@ -1,0 +1,37 @@
+@import '../../../styles/vars';
+
+.search-container{
+  width: 50%;
+  margin: 2rem auto;
+}
+
+.product-search {
+  margin: 1rem;
+    background-color: $second-color;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+    width: 50%;
+}
+
+input::placeholder {
+  color: white;
+  font-weight: bold;
+}
+
+@media screen and (max-width:800px) {
+  .search-container{
+    width: 70%;
+    margin: 2rem auto;
+  }
+  
+  
+}
+
+@media screen and (max-width:400px) {
+  .search-container{
+    width: 100%;
+    margin: 2rem auto;
+  }
+
+}

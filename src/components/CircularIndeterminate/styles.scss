@@ -1,0 +1,11 @@
+@import '../../styles/vars';
+
+.circulare{
+  //  permet de positionner la div de manière fixe par rapport à la fenêtre du navigateur.
+  position: fixed;
+  // déplacent la div de sorte que son coin supérieur gauche soit au milieu de l'écran.
+  top: 50%;
+  left: 50%;
+  // permet de déplacer la div de moitié de sa largeur vers la gauche et de moitié de sa hauteur vers le haut, ce qui la centre parfaitement.
+  transform: translate(-50%, -50%); 
+}

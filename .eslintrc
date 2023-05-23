@@ -36,8 +36,12 @@
     "object-shorthand": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    "import/no-extraneous-dependencies": "off"
-  },
+    "import/no-extraneous-dependencies": "off",
+    "prefer-exponentiation-operator": "off",
+    "max-len": "off",
+    "quotes": "off",
+    "jsx-a11y/label-has-associated-control": "off"
+    },
   "settings": {
     "import/resolver": {
       "alias": {

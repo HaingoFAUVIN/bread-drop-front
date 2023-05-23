@@ -1,0 +1,500 @@
+@import '../../../styles/vars';
+
+.modal-contain{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px) grayscale(0.3);
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-card{ // toute la carte
+  background-color: $second-color;
+  border: solid rgb(0, 0, 0, 0.5);
+  width: 25vw;
+  height: 90vh;
+  margin: 35px;
+  color: white;
+  border-radius: 15px;
+  
+}
+.modal-image{ // div pour la photo
+  width: 100%;
+  height: 30vh;
+  margin-bottom: 15px;
+  background-image: url('./bread.jpg');
+  background-size: cover;
+  background-position: center; 
+  border-radius: 15px 15px 0 0;
+  
+}
+
+.modal-title{
+  text-align: center;
+  margin-top: 1rem;
+  
+}
+
+.modal-description{
+  text-align: center;
+  background-color: $base-color;
+  width: 95%;
+  border-radius: 1px;
+  margin: auto;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+.descriptionModal{
+  padding: .25rem;
+  margin: 1rem 1rem 1rem 1rem;
+
+}
+
+.modal-other{
+  background-color: $base-color;
+  width: 95%;
+  height: 25vh;
+  border-radius: 1px;
+  margin: auto;
+  border-radius: 15px;
+  margin-bottom: 2.7rem;
+  margin-top: 2rem;
+}
+
+.modal-likes{
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.modal-pictures {
+  margin-top: 1rem;
+  padding: .25rem;  
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+
+.modal-otherPicture{
+  margin: 0.25rem;
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+  height: 15vh;
+  width: 100%;
+  border-radius: 10px;
+}
+.modal-choice{
+  background-color: $base-color;
+  width: 95%;
+  border-radius: 1px;
+  margin: auto;
+  border-radius: 15px;
+}
+
+@media screen and (max-width:1000px) {
+  .modal-contain{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px) grayscale(0.3);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+  }
+  .modal-card{ // toute la carte
+    background-color: $second-color;
+    border: solid rgb(0, 0, 0, 0.5);
+    width: 35vw;
+    height: 90vh;
+    margin: 35px;
+    color: white;
+    border-radius: 15px;
+    
+  }
+  .modal-image{ // div pour la photo
+    width: 100%;
+    height: 30vh;
+    margin-bottom: 15px;
+    background-image: url('./bread.jpg');
+    background-size: cover;
+    background-position: center; 
+    border-radius: 15px 15px 0 0;
+    
+  }
+  
+  .modal-title{
+    text-align: center;
+    margin-top: 1rem;
+    
+  }
+  
+  .modal-description{
+    text-align: center;
+    background-color: $base-color;
+    width: 95%;
+    border-radius: 1px;
+    margin: auto;
+    border-radius: 15px;
+    font-size: 12px;
+  }
+  
+  .descriptionModal{
+    padding: .25rem;
+    margin: 1rem 1rem 1rem 1rem;
+  
+  }
+  
+  .modal-other{
+    background-color: $base-color;
+    width: 95%;
+    height: 25vh;
+    border-radius: 1px;
+    margin: auto;
+    border-radius: 15px;
+    margin-bottom: 2.7rem;
+    margin-top: 2rem;
+  }
+  
+  .modal-likes{
+    text-align: center;
+    padding-top: 1rem;
+  }
+  
+  .modal-pictures {
+    margin-top: 1rem;
+    padding: .25rem;  
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  
+  .modal-otherPicture{
+    margin: 0.25rem;
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: 15vh;
+    width: 100%;
+    border-radius: 10px;
+  }
+  .modal-choice{
+    background-color: $base-color;
+    width: 95%;
+    border-radius: 1px;
+    margin: auto;
+    border-radius: 15px;
+  }
+  
+}
+
+@media screen and (max-width:750px) {
+  .modal-contain{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px) grayscale(0.3);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+  }
+  .modal-card{ // toute la carte
+    background-color: $second-color;
+    border: solid rgb(0, 0, 0, 0.5);
+    width: 40vw;
+    height: 90vh;
+    margin: 45px;
+    color: white;
+    border-radius: 15px;
+    
+  }
+  .modal-image{ // div pour la photo
+    width: 100%;
+    height: 30vh;
+    margin-bottom: 15px;
+    background-image: url('./bread.jpg');
+    background-size: cover;
+    background-position: center; 
+    border-radius: 15px 15px 0 0;
+    
+  }
+  
+  .modal-title{
+    text-align: center;
+    margin-top: 1rem;
+    
+  }
+  
+  .modal-description{
+    text-align: center;
+    background-color: $base-color;
+    width: 95%;
+    border-radius: 1px;
+    margin: auto;
+    border-radius: 15px;
+    font-size: 12px;
+  }
+  
+  .descriptionModal{
+    padding: .25rem;
+    margin: 1rem 1rem 1rem 1rem;
+  
+  }
+  
+  .modal-other{
+    background-color: $base-color;
+    width: 95%;
+    height: 25vh;
+    border-radius: 1px;
+    margin: auto;
+    border-radius: 15px;
+    margin-bottom: 2.7rem;
+    margin-top: 2rem;
+  }
+  
+  .modal-likes{
+    text-align: center;
+    padding-top: 1rem;
+  }
+  
+  .modal-pictures {
+    margin-top: 1rem;
+    padding: .25rem;  
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  
+  .modal-otherPicture{
+    margin: 0.25rem;
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: 15vh;
+    width: 100%;
+    border-radius: 10px;
+  }
+  .modal-choice{
+    background-color: $base-color;
+    width: 95%;
+    border-radius: 1px;
+    margin: auto;
+    border-radius: 15px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .modal-contain{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px) grayscale(0.3);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+  }
+  .modal-card{ // toute la carte
+    background-color: $second-color;
+    border: solid rgb(0, 0, 0, 0.5);
+    width: 65vw;
+    height: 90vh;
+    margin: 35px;
+    color: white;
+    border-radius: 15px;
+    
+  }
+  .modal-image{ // div pour la photo
+    width: 100%;
+    height: 30vh;
+    margin-bottom: 15px;
+    background-image: url('./bread.jpg');
+    background-size: cover;
+    background-position: center; 
+    border-radius: 15px 15px 0 0;
+    
+  }
+  
+  .modal-title{
+    text-align: center;
+    margin-top: 1rem;
+    
+  }
+  
+  .modal-description{
+    text-align: center;
+    background-color: $base-color;
+    width: 95%;
+    border-radius: 1px;
+    margin: auto;
+    border-radius: 15px;
+    font-size: 12px;
+  }
+  
+  .descriptionModal{
+    padding: .25rem;
+    margin: 1rem 1rem 1rem 1rem;
+  
+  }
+  
+  .modal-other{
+    background-color: $base-color;
+    width: 95%;
+    height: 25vh;
+    border-radius: 1px;
+    margin: auto;
+    border-radius: 15px;
+    margin-bottom: 2.7rem;
+    margin-top: 2rem;
+  }
+  
+  .modal-likes{
+    text-align: center;
+    padding-top: 1rem;
+  }
+  
+  .modal-pictures {
+    margin-top: 1rem;
+    padding: .25rem;  
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  
+  .modal-otherPicture{
+    margin: 0.25rem;
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: 15vh;
+    width: 100%;
+    border-radius: 10px;
+  }
+  .modal-choice{
+    background-color: $base-color;
+    width: 95%;
+    border-radius: 1px;
+    margin: auto;
+    border-radius: 15px;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .modal-contain{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px) grayscale(0.3);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+  }
+  .modal-card{ // toute la carte
+    background-color: $second-color;
+    border: solid rgb(0, 0, 0, 0.5);
+    width: 60vw;
+    height: 90vh;
+    margin: 35px;
+    color: white;
+    border-radius: 15px;
+    
+  }
+  .modal-image{ // div pour la photo
+    width: 100%;
+    height: 30vh;
+    margin-bottom: 15px;
+    background-image: url('./bread.jpg');
+    background-size: cover;
+    background-position: center; 
+    border-radius: 15px 15px 0 0;
+    
+  }
+  
+  .modal-title{
+    text-align: center;
+    margin-top: 1rem;
+    
+  }
+  
+  .modal-description{
+    text-align: center;
+    background-color: $base-color;
+    width: 95%;
+    border-radius: 1px;
+    margin: auto;
+    border-radius: 15px;
+    font-size: 12px;
+  }
+  
+  .descriptionModal{
+    padding: .25rem;
+    margin: 1rem 1rem 1rem 1rem;
+  
+  }
+  
+  .modal-other{
+    background-color: $base-color;
+    width: 95%;
+    height: 25vh;
+    border-radius: 1px;
+    margin: auto;
+    border-radius: 15px;
+    margin-bottom: 2.7rem;
+    margin-top: 2rem;
+  }
+  
+  .modal-likes{
+    text-align: center;
+    padding-top: 1rem;
+  }
+  
+  .modal-pictures {
+    margin-top: 1rem;
+    padding: .25rem;  
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  
+  .modal-otherPicture{
+    margin: 0.25rem;
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: 15vh;
+    width: 100%;
+    border-radius: 10px;
+  }
+  .modal-choice{
+    background-color: $base-color;
+    width: 95%;
+    border-radius: 1px;
+    margin: auto;
+    border-radius: 15px;
+  }
+}
