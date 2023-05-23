@@ -1,19 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import IconTextField from '@mui/material/TextField';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import AddLocationIcon from '@mui/icons-material/AddLocation';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import Logo from '../../../../assets/Logo.png';
 import profileImg from '../../../../assets/profile.jpg';
-import CloseIcon from '@mui/icons-material/Close';
+import { UserContext } from '../../../Profile/UserContext';
 
 import './styles.scss';
 
 function Nav() {
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+  const { user } = useContext(UserContext);
+  console.log(user);
 
   const handleOpenOverlay = () => {
     setIsOverlayVisible(true);
@@ -25,8 +24,8 @@ function Nav() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className='navbar-responsive-open'>
-          <button className="navbar-responsive-open-button"  onClick={handleOpenOverlay}><MenuIcon fontSize='large' /></button>
+        <div className="navbar-responsive-open">
+          <button type="button" className="navbar-responsive-open-button"  onClick={handleOpenOverlay}><MenuIcon fontSize='large' /></button>
         </div>
         <div className="navbar-logo">
           <Link to="/home" className="navbar-logo-image">
@@ -60,11 +59,11 @@ function Nav() {
             <Link to="/" className="navbar-mobile-item navbar-panier">
               Mon compte
             </Link>
-            <Link to="/connexion-pro" className="navbar-mobile-item navbar-pro">
+            <Link to="?" className="navbar-item navbar-pro" style={{ display: (user && user.role.includes('ROLE_MANAGER')) ? 'block' : 'none' }}>
               BreadDrop Pro
             </Link>
           </div>
-          <div className='overlay-bottom'>
+          <div className="overlay-bottom">
             <Link to="/connexion" className="navbar-mobile-item navbar-connexion">
               Connexion
             </Link>

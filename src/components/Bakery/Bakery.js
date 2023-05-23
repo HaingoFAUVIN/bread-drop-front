@@ -2,10 +2,10 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Footer from '../Home/Footer/Footer';
 
 // --- COMPOSANTS
 import Nav from '../Home/Header/Nav/Nav';
+import Footer from '../Home/Footer/Footer';
 import BakeryBanner from './BakeryBanner/BakeryBanner';
 import BakerySearchProducts from './BakerySearchProducts/BakerySearchProducts';
 import Bread from './Bread/Bread';
@@ -27,6 +27,7 @@ function Bakery({
 }) {
   const { id } = useParams();
   const [bakery, setBakery] = useState(null);
+  const [bakeryHours, setBakeryHours] = useState(null);
 
   const [pastries, setPastries] = useState([]);
   const [viennoiseries, setViennoiseries] = useState([]);
@@ -71,14 +72,23 @@ function Bakery({
         console.log(erreur);
       }
     };
+    const fetchBakeryHours = async () => {
+      try {
+        const response = await api.get(`api/horraires/`);
+        setBakeryHours(response.data);
+      } catch (erreur) {
+        console.log(erreur);
+      }
+    };
     fetchBakery();
+    fetchBakeryHours();
   }, [id]);
 
   return (
     <>
       <Nav />
 
-      <BakeryBanner bakery={bakery} />
+      <BakeryBanner bakery={bakery} bakeryHours={bakeryHours} />
       <BakerySearchProducts />
       <Bread isVisible={isVisible} setIsVisible={setIsVisible} breads={breads} />
       <Pastry isVisible2={isVisible2} setIsVisible2={setIsVisible2} pastries={pastries} />
