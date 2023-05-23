@@ -26,7 +26,6 @@ function BakeriesList() {
       const response = await api.get('api/boulangeries');
       const bakeriesWithCoords = await Promise.all(
         response.data.map(async (bakery) => {
-          console.log(bakery);
           const geoResponse = await axios.get(
             `${opencageApi}?q=${encodeURIComponent(bakery.adress)}&key=${opencageKey}`,
           );
