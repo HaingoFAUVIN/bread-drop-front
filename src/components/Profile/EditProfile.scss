@@ -1,4 +1,14 @@
 .edit-profile {
+
+  .submit-button {
+    padding: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #47beed;
+    border-radius: 10px;
+    border: none;
+    color: black;
+  }
   .user-banner {
     position: relative;
     height: 50%;
@@ -87,13 +97,19 @@
     background-color: #d9d9d9;
     border-radius: 10px;
     padding: 1rem;
-    margin: 1rem 0;
+    margin: 1rem;
 
     .account-info {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1rem;
+
+      input {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid gray;
+      }
 
       p {
         font-size: 1em;

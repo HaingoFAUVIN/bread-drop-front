@@ -7,10 +7,11 @@ import Bakery from '../../assets/Bakery.jpg';
 import UserPic from '../../assets/User.jpg';
 import './Orders.scss';
 
-
 function Orders() {
   const { user } = useContext(UserContext);
-  const username = sessionStorage.getItem('userEmail');
+  const usermail = sessionStorage.getItem('userEmail');
+  const userFirstName = sessionStorage.getItem('userName');
+  const userLastName = sessionStorage.getItem('lastName');
   const userid = sessionStorage.getItem('userId');
   const userAdress = sessionStorage.getItem('userAddress');
 
@@ -22,7 +23,7 @@ function Orders() {
         <div className="user-details">
           <img className="user-image" src={UserPic} alt="Jean Dupont" />
           <div className="name-address">
-            <h1>{username}</h1>
+            <h1>{userFirstName} {userLastName}</h1>
             <p>{userAdress}</p>
           </div>
         </div>
