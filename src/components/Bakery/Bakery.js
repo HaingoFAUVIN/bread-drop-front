@@ -86,14 +86,14 @@ function Bakery({
         ? <NotFound />
         : (
           <>
-          
+            <Nav />
             <BakeryBanner bakery={bakery} />
             <BakerySearchProducts />
             <Bread isVisible={isVisible} setIsVisible={setIsVisible} breads={breads} />
             <Pastry isVisible2={isVisible2} setIsVisible2={setIsVisible2} pastries={pastries} />
             <Viennoiserie isVisible3={isVisible3} setIsVisible3={setIsVisible3} viennoiseries={viennoiseries} />
             <Sandwich isVisible4={isVisible4} setIsVisible4={setIsVisible4} sandwiches={sandwiches} />
-    
+            <Footer />
           </>
         )
   );
