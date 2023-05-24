@@ -1,12 +1,11 @@
 import { useState, useContext } from 'react';
-import { UserContext } from '../../../../contexts/UserContext';
 import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Logo from '../../../../assets/Logo.png';
 import profileImg from '../../../../assets/profile.jpg';
-import { UserContext } from '../../../Profile/UserContext';
+import { UserContext } from '../../../../contexts/UserContext';
 
 import './styles.scss';
 
