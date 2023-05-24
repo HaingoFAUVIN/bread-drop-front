@@ -39,11 +39,11 @@ function Login() {
         <form onSubmit={handleLogin}>
           <div className="input-group">
             <p>Adresse e-mail</p>
-            <input type="username" placeholder="Email" value={username} onChange={(event) => setEmail(event.target.value)} />
+            <input type="username" placeholder="123@email.com" value={username} onChange={(event) => setEmail(event.target.value)} />
           </div>
           <div className="input-group">
             <p>Mot de Passe</p>
-            <input type="password" placeholder="Mot de passe" value={password} onChange={(event) => setPassword(event.target.value)} />
+            <input type="password" placeholder="*****" value={password} onChange={(event) => setPassword(event.target.value)} />
           </div>
 
           <div className="button-group">
@@ -65,7 +65,7 @@ function Login() {
         <div className="login-card">
           <h1 className="login-card--title">BreadDrop</h1>
           <br />
-          <p className="login-card--text">Connectez-vous en tant qu'utilisateur ou en tant que professionnel.</p>
+          <p className="login-card--text">Connectez-vous en tant qu'utilisateur ou bien professionnel</p>
         </div>
       </div>
     </div>

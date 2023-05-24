@@ -15,6 +15,9 @@ export const UserProvider = ({ children }) => {
       let decodedToken = jwt_decode(token);
         console.log(decodedToken);
         console.log(decodedToken.username);
+        console.log(decodedToken.roles);
+
+        sessionStorage.setItem('userRoles', decodedToken.roles);
 
       const api = axios.create({
         baseURL: 'http://davyvistel-server.eddi.cloud/',

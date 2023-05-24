@@ -3,15 +3,17 @@ import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { UserContext } from '../../../../contexts/UserContext';
 import Logo from '../../../../assets/Logo.png';
 import profileImg from '../../../../assets/profile.jpg';
-import { UserContext } from '../../../../contexts/UserContext';
 
 import './styles.scss';
 
 function Nav() {
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
   const { user, isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext);
+
+  const userRoles = sessionStorage.getItem('userRoles');
 
 
   const handleOpenOverlay = () => {
@@ -45,9 +47,11 @@ function Nav() {
           <ShoppingCartIcon fontSize="small" />
           Panier
         </Link>
-        <Link to="?" className="navbar-item navbar-pro">
-          BreadDrop Pro
-        </Link>
+        {userRoles.includes('ROLE_MANAGER') && (
+          <Link to="?" className="navbar-item navbar-pro">
+            BreadDrop Pro
+          </Link>
+        )}
         {isUserLoggedIn ? (
           <Link to="/profil" className="navbar-profile">
             <img className="navbar-profile-img" src={profileImg} alt="profile" height="50" width="50" />

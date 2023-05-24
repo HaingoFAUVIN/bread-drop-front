@@ -65,11 +65,11 @@ function CheckIn() {
             <div className="userSelection">
               <div>
                 <input type="radio" id="user" name="role" value="ROLE_USER" checked={role === "ROLE_USER"} onChange={(event) => setRole(event.target.value)} />
-                <label htmlFor="user"> Professionnel</label>
+                <label htmlFor="user"> Je suis Professionnel et Client</label>
               </div>
               <div>
                 <input type="radio" id="manager" name="role" value="ROLE_MANAGER" checked={role === "ROLE_MANAGER"} onChange={(event) => setRole(event.target.value)} />
-                <label htmlFor="manager"> Client </label>
+                <label htmlFor="manager"> Je suis uniquement Client </label>
               </div>
             </div>
           </div>
