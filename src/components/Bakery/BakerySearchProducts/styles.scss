@@ -3,6 +3,17 @@
 .search-container{
   width: 50%;
   margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-container li {
+  margin-bottom: 0.2rem;
+  color: #fff;
+  background-color: $second-color;
+  padding: 0.5rem;
+  border-radius: 5px;
 }
 
 .product-search {
