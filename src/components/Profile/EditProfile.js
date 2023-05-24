@@ -10,6 +10,8 @@ import './EditProfile.scss';
 function EditProfile() {
   const { user, setUser } = useContext(UserContext);
   const usermail = sessionStorage.getItem('userEmail');
+  const userFirstName = sessionStorage.getItem('userName');
+  const userLastName = sessionStorage.getItem('lastName');
   const userid = sessionStorage.getItem('userId');
   const userAdress = sessionStorage.getItem('userAddress');
 
@@ -17,6 +19,10 @@ function EditProfile() {
   const [address, setAddress] = useState(userAdress);
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
+
+  const [showEmailForm, setShowEmailForm] = useState(false);
+  const [showAddressForm, setShowAddressForm] = useState(false);
+  const [showPasswordForm, setShowPasswordForm] = useState(false);
 
   const navigate = useNavigate();
 
@@ -31,15 +37,15 @@ function EditProfile() {
     });
 
     try {
-      const response = await api.put(`/api/profil/modifier/${userid}`, { email, address });
+      const response = await api.put(`/api/utilisateurs/${userid}/modifier`, { email, address });
 
-      if (response.data.success) {
-        setUser(response.data.user);
-        sessionStorage.setItem('userEmail', response.data.user.email);
-        sessionStorage.setItem('userAddress', response.data.user.address);
-        navigate('/profil');
+      if (response.data.email) {
+        setUser(response.data);
+        sessionStorage.setItem('userEmail', response.data.email);
+        sessionStorage.setItem('userAddress', response.data.adress); // Notez que c'est "adress", pas "address"
+        navigate('/edit-profil');
       } else {
-        alert(response.data.message);
+        alert('La mise à jour du profil a échoué');
       }
     } catch (error) {
       console.error('Failed to update profile:', error);
@@ -57,7 +63,7 @@ function EditProfile() {
     });
 
     try {
-      const response = await api.put(`/api/profil/modifier`, { oldPassword, newPassword });
+      const response = await api.put(`/api/utilisateurs/${userid}/modifier`, { oldPassword, newPassword });
 
       if (response.data.success) {
         alert('Mot de passe modifié avec succès');
@@ -79,7 +85,7 @@ function EditProfile() {
         <div className="user-details">
           <img className="user-image" src={UserPic} alt="Jean Dupont" />
           <div className="name-address">
-            <h1>{usermail}</h1>
+            <h1>{userFirstName} {userLastName}</h1>
             <p>{userAdress}</p>
           </div>
         </div>
@@ -89,29 +95,50 @@ function EditProfile() {
         <Link to="/edit-profil" className="button-link"> Modifier mon profil</Link>
       </div>
       <div className="account">
-        <form onSubmit={handleUpdate}>
+        {showEmailForm ? (
+          <form onSubmit={handleUpdate}>
+            <div className="account-info">
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              <button type="submit">Modifier</button>
+            </div>
+          </form>
+        ) : (
           <div className="account-info">
-            <label>Email</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            <button type="submit">Modifier</button>
+            <label>{usermail}</label>
+            <button type="button" onClick={() => setShowEmailForm(true)}>Modifier</button>
           </div>
+        )}
+        {showAddressForm ? (
+          <form onSubmit={handleUpdate}>
+            <div className="account-info">
+              <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} required />
+              <button type="submit">Modifier</button>
+            </div>
+          </form>
+        ) : (
           <div className="account-info">
-            <label>Adresse</label>
-            <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} required />
-            <button type="submit">Modifier</button>
+            <label>{userAdress}</label>
+            <button type="button" onClick={() => setShowAddressForm(true)}>Modifier</button>
           </div>
-        </form>
-        <form onSubmit={handleChangePassword}>
+        )}
+        {showPasswordForm ? (
+          <form onSubmit={handleChangePassword} style={{ flexDirection: 'column' }}>
+            <div className="account-info">
+              <label>Ancien mot de passe</label>
+              <input style={{ padding: '10px', margin: '10px 0' }} type="password" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} required />
+            </div>
+            <div className="account-info">
+              <label>Nouveau mot de passe</label>
+              <input style={{ padding: '10px', margin: '10px 0' }} type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required />
+            </div>
+            <button className="submit-button" type="submit">Modifier le mot de passe</button>
+          </form>
+        ) : (
           <div className="account-info">
-            <label>Ancien mot de passe</label>
-            <input type="password" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} required />
+            <label>Mot de Passe</label>
+            <button className="submit-button" type="button" onClick={() => setShowPasswordForm(true)}>Modifier</button>
           </div>
-          <div className="account-info">
-            <label>Nouveau mot de passe</label>
-            <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required />
-            <button type="submit">Modifier</button>
-          </div>
-        </form>
+        )}
       </div>
     </div>
   );
