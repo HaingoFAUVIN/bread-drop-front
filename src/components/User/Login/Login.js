@@ -39,27 +39,24 @@ function Login() {
         <form onSubmit={handleLogin}>
           <div className="input-group">
             <p>Adresse e-mail</p>
-            <input type="username" placeholder="Email" value={username} onChange={(event) => setEmail(event.target.value)} />
+            <input type="username" placeholder="123@email.com" value={username} onChange={(event) => setEmail(event.target.value)} />
           </div>
           <div className="input-group">
             <p>Mot de Passe</p>
-            <input type="password" placeholder="Mot de passe" value={password} onChange={(event) => setPassword(event.target.value)} />
+            <input type="password" placeholder="*****" value={password} onChange={(event) => setPassword(event.target.value)} />
           </div>
 
           <div className="button-group">
             <button className="form-button" type="submit">Connexion</button>
           </div>
         </form>
-
-        <hr />
-
-        <div className="first-time-section">
-          <p>Première Fois ?</p>
-          <div className="button-group">
-            <Link to="/inscription" className="form-button registration-button">
-              Inscription
-            </Link>
-          </div>
+        <div className="inscription">
+          <Link to="/inscription" className="form-button registration-button">
+            <div className="first-time-section">
+              <p className="paragraphe1">Première fois sur BreadDrop ?</p>
+              <p className="paragraphe2">Inscrivez-vous</p>
+            </div>
+          </Link>
         </div>
       </div>
 
@@ -68,7 +65,7 @@ function Login() {
         <div className="login-card">
           <h1 className="login-card--title">BreadDrop</h1>
           <br />
-          <p className="login-card--text">Connectez-vous en tant qu'utilisateur ou en tant que professionnel.</p>
+          <p className="login-card--text">Connectez-vous en tant qu'utilisateur ou bien professionnel</p>
         </div>
       </div>
     </div>
