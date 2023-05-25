@@ -1,3 +1,5 @@
+@import '../../styles/vars';
+
 .edit-profile {
 
   .submit-button {
@@ -39,6 +41,7 @@
         flex-direction: column;
         justify-content: center;
         margin-left: 15px;
+        font-weight: bold;
 
         h1, p {
           font-size: 1.6em;
@@ -73,6 +76,7 @@
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
+    font-weight: bold;
 
     .button-link {
       padding: 10px;
@@ -80,30 +84,33 @@
       cursor: pointer;
       flex: 1;
       margin: 0 10px;
-      background-color: #d9d9d9;
+      background-color: $second-color;
       border-radius: 10px;
       border: none;
-      color: black;
+      color: white;
       text-decoration: none;
       text-align: center;
 
       &:last-child {
-        background-color: #47beed;
+        background-color: $third-color;
       }
     }
   }
 
   .account {
-    background-color: #d9d9d9;
+    // background-color: $third-color;
     border-radius: 10px;
     padding: 1rem;
-    margin: 1rem;
+    margin: 1rem 1rem ;
+    margin-top: 4rem;
+    margin-bottom: 6rem;
 
     .account-info {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
+      font-weight: bold;
 
       input {
         padding: 10px;
@@ -119,7 +126,7 @@
         padding: 10px;
         font-size: 1em;
         cursor: pointer;
-        background-color: #47beed;
+        background-color: $second-color;
         border-radius: 10px;
         border: none;
         color: black;

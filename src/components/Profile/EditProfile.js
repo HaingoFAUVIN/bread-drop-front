@@ -5,6 +5,7 @@ import { UserContext } from '../../contexts/UserContext';
 import Nav from '../Home/Header/Nav/Nav';
 import UserPic from '../../assets/User.jpg';
 import Banner from '../../assets/UserBanner.png';
+import Footer from '../Home/Footer/Footer';
 import './EditProfile.scss';
 
 function EditProfile() {
@@ -91,9 +92,10 @@ function EditProfile() {
         </div>
       </div>
       <div className="buttons">
-        <Link to="/profil" className="button-link"> Commandes </Link>
+        <Link to="/profil" className="button-link"> Mes commandes </Link>
         <Link to="/edit-profil" className="button-link"> Modifier mon profil</Link>
       </div>
+
       <div className="account">
         {showEmailForm ? (
           <form onSubmit={handleUpdate}>
@@ -140,6 +142,7 @@ function EditProfile() {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   );
 }
