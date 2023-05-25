@@ -1,6 +1,16 @@
 @import '../../styles/vars';
 
 .edit-profile {
+
+  .submit-button {
+    padding: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #47beed;
+    border-radius: 10px;
+    border: none;
+    color: black;
+  }
   .user-banner {
     position: relative;
     height: 50%;
@@ -94,7 +104,6 @@
     margin: 1rem 1rem ;
     margin-top: 4rem;
     margin-bottom: 6rem;
-    
 
     .account-info {
       display: flex;
@@ -102,6 +111,12 @@
       align-items: center;
       margin-bottom: 2rem;
       font-weight: bold;
+
+      input {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid gray;
+      }
 
       p {
         font-size: 1em;

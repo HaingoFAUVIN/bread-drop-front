@@ -5,6 +5,7 @@ import Nav from '../Home/Header/Nav/Nav';
 import Banner from '../../assets/UserBanner.png';
 import UserPic from '../../assets/User.jpg';
 import './Orders.scss';
+
 import Footer from '../Home/Footer/Footer';
 
 function Orders() {

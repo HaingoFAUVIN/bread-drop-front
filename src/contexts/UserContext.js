@@ -6,6 +6,7 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const token = sessionStorage.getItem('token');
@@ -14,6 +15,9 @@ export const UserProvider = ({ children }) => {
       let decodedToken = jwt_decode(token);
         console.log(decodedToken);
         console.log(decodedToken.username);
+        console.log(decodedToken.roles);
+
+        sessionStorage.setItem('userRoles', decodedToken.roles);
 
       const api = axios.create({
         baseURL: 'http://davyvistel-server.eddi.cloud/',
@@ -26,14 +30,16 @@ export const UserProvider = ({ children }) => {
           try {
             const response = await api.get('api/utilisateurs');
             if (response.data) {
-              const user = response.data.find(user => user.email === decodedToken.username); 
+              const user = response.data.find(user => user.email === decodedToken.username);
+              console.log(user)
               if (user) {
                 console.log(user);
                 sessionStorage.setItem('userId', user.id);
-                sessionStorage.setItem('userName', user.username);
+                sessionStorage.setItem('userName', user.firstname);
                 sessionStorage.setItem('lastName', user.lastname);
                 sessionStorage.setItem('userEmail', user.email);
-                sessionStorage.setItem('userAddress', user.address);
+                sessionStorage.setItem('userAddress', user.adress);
+                setUser(user);
               }
             }
           }
@@ -48,8 +54,8 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ isUserLoggedIn, setIsUserLoggedIn }}>
-      {children}
-    </UserContext.Provider>
-  );
+      <UserContext.Provider value={{ isUserLoggedIn, setIsUserLoggedIn, user, setUser }}>
+        {children}
+      </UserContext.Provider>
+    );
 };

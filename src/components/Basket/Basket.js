@@ -15,7 +15,7 @@ function Basket() {
 
   const { cart, clearCart } = useContext(CartContext);
 
-  const [dateTime, setDateTime] = useState("2018-06-12T19:30"); 
+  const [dateTime, setDateTime] = useState("2023-05-23T00:00");
 
   
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
@@ -77,7 +77,7 @@ const handlePayment = async () => {
         <input type="datetime-local" id="meeting-time"
         name="meeting-time" value={dateTime} 
         onChange={e => setDateTime(e.target.value)} 
-        min="2018-06-07T00:00" max="2018-06-14T00:00">
+        min="2023-05-23T00:00" max="2025-06-14T00:00">
         </input>
       </div>
       <div className='checkout'>
