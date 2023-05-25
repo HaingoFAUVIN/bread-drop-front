@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import Nav from '../Home/Header/Nav/Nav';
 import Banner from '../../assets/UserBanner.png';
-import Bakery from '../../assets/Bakery.jpg';
 import UserPic from '../../assets/User.jpg';
 import './Orders.scss';
 import Footer from '../Home/Footer/Footer';

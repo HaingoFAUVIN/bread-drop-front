@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Nav from '../Home/Header/Nav/Nav';
 import UserPic from '../../assets/User.jpg';
 import Banner from '../../assets/UserBanner.png';
+import Footer from '../Home/Footer/Footer';
 import './EditProfile.scss';
 
 function EditProfile() {
@@ -36,6 +37,7 @@ function EditProfile() {
           <button type="button">Modifier</button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
