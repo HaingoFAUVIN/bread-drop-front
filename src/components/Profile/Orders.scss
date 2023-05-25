@@ -7,7 +7,7 @@
   flex-wrap: wrap;
 
   .newcardorder-only{
-    margin-right: 4rem;
+    margin-right: 1rem;
   }
 }
 
@@ -132,6 +132,7 @@
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
+    font-weight: bold;
 
     .button-link {
       padding: 10px;
@@ -139,15 +140,15 @@
       cursor: pointer;
       flex: 1;
       margin: 0 10px;
-      background-color: #d9d9d9;
+      background-color: $second-color;
       border-radius: 10px;
       border: none;
-      color: black;
+      color: white;
       text-decoration: none;
       text-align: center;
 
       &:first-child {
-        background-color: #47beed;
+        background-color: $third-color;
       }
     }
   }

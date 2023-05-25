@@ -1,3 +1,5 @@
+@import '../../styles/vars';
+
 .edit-profile {
   .user-banner {
     position: relative;
@@ -63,6 +65,7 @@
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
+    font-weight: bold;
 
     .button-link {
       padding: 10px;
@@ -70,15 +73,15 @@
       cursor: pointer;
       flex: 1;
       margin: 0 10px;
-      background-color: #d9d9d9;
+      background-color: $second-color;
       border-radius: 10px;
       border: none;
-      color: black;
+      color: white;
       text-decoration: none;
       text-align: center;
 
       &:last-child {
-        background-color: #47beed;
+        background-color: $third-color;
       }
     }
   }
