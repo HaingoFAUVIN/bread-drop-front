@@ -20,9 +20,10 @@ function EditProfile() {
         </div>
       </div>
       <div className="buttons">
-        <Link to="/profil" className="button-link"> Commandes </Link>
+        <Link to="/profil" className="button-link"> Mes commandes </Link>
         <Link to="/edit-profil" className="button-link"> Modifier mon profil</Link>
       </div>
+
       <div className="account">
         <div className="account-info">
           <p>Adresse-email</p>
