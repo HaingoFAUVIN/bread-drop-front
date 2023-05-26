@@ -17,7 +17,7 @@ function BakeryTitlePastry({ isVisible2, setIsVisible2 }) {
         }}
       >
         {/* STYLISER LE BUTTON  */}
-        {isVisible2 ? <ArrowCircleUpOutlinedIcon /> : <ArrowCircleDownOutlinedIcon />}
+        {isVisible2 ? <ArrowCircleUpOutlinedIcon sx={{ fontSize: 40 }} /> : <ArrowCircleDownOutlinedIcon sx={{ fontSize: 40 }} />}
       </Link>
     </section>
   );

@@ -17,7 +17,7 @@ function BakeryTitleSandwich({ isVisible4, setIsVisible4 }) {
         }}
       >
         {/* STYLISER LE BUTTON  */}
-        {isVisible4 ? <ArrowCircleUpOutlinedIcon /> : <ArrowCircleDownOutlinedIcon />}
+        {isVisible4 ? <ArrowCircleUpOutlinedIcon sx={{ fontSize: 40 }} /> : <ArrowCircleDownOutlinedIcon sx={{ fontSize: 40 }} />}
       </Link>
     </section>
   );
