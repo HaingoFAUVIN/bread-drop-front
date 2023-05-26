@@ -13,7 +13,7 @@ function Login() {
   const navigate = useNavigate();
 
   const api = axios.create({
-    baseURL: 'http://davyvistel-server.eddi.cloud/',
+    baseURL: 'https://davyvistel-server.eddi.cloud/',
   });
 
   const handleLogin = async (event) => {

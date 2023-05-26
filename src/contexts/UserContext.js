@@ -17,7 +17,7 @@ export const UserProvider = ({ children }) => {
         console.log(decodedToken.username);
 
       const api = axios.create({
-        baseURL: 'http://davyvistel-server.eddi.cloud/',
+        baseURL: 'https://davyvistel-server.eddi.cloud/',
         headers: {
           Authorization: `Bearer`, 
         },

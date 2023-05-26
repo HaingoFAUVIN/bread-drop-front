@@ -30,7 +30,7 @@ function EditProfile() {
     event.preventDefault();
 
     const api = axios.create({
-      baseURL: 'http://davyvistel-server.eddi.cloud/',
+      baseURL: 'https://davyvistel-server.eddi.cloud/',
       headers: {
         Authorization: 'Bearer',
       },
@@ -56,7 +56,7 @@ function EditProfile() {
     event.preventDefault();
 
     const api = axios.create({
-      baseURL: 'http://davyvistel-server.eddi.cloud/',
+      baseURL: 'https://davyvistel-server.eddi.cloud/',
       headers: {
         Authorization: 'Bearer',
       },
