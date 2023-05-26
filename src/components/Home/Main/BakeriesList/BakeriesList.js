@@ -8,7 +8,7 @@ import axios from 'axios';
 
 function BakeriesList() {
   const api = axios.create({
-    baseURL: 'http://davyvistel-server.eddi.cloud/',
+    baseURL: 'https://davyvistel-server.eddi.cloud/',
     headers: {
       Authorization: 'Bearer',
     },
@@ -26,7 +26,6 @@ function BakeriesList() {
       const response = await api.get('api/boulangeries');
       const bakeriesWithCoords = await Promise.all(
         response.data.map(async (bakery) => {
-          console.log(bakery);
           const geoResponse = await axios.get(
             `${opencageApi}?q=${encodeURIComponent(bakery.adress)}&key=${opencageKey}`,
           );

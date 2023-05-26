@@ -1,15 +1,19 @@
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { UserContext } from './UserContext';
+import { UserContext } from '../../contexts/UserContext';
 import Nav from '../Home/Header/Nav/Nav';
-// import UserPic from '../../assets/User.jpg';
 import Banner from '../../assets/UserBanner.png';
 import Bakery from '../../assets/Bakery.jpg';
+import UserPic from '../../assets/User.jpg';
 import './Orders.scss';
 
 function Orders() {
   const { user } = useContext(UserContext);
-  console.log(user);
+  const usermail = sessionStorage.getItem('userEmail');
+  const userFirstName = sessionStorage.getItem('userName');
+  const userLastName = sessionStorage.getItem('lastName');
+  const userid = sessionStorage.getItem('userId');
+  const userAdress = sessionStorage.getItem('userAddress');
 
   return (
     <div className="orders">
@@ -17,10 +21,10 @@ function Orders() {
       <div className="user-banner">
         <img className="banner-image" src={Banner} alt="Banner" />
         <div className="user-details">
-          <img className="user-image" src={user?.picture} alt="Jean Dupont" />
+          <img className="user-image" src={UserPic} alt="Jean Dupont" />
           <div className="name-address">
-            <h1>{user?.username}</h1>
-            <p>{user?.adress}</p>
+            <h1>{userFirstName} {userLastName}</h1>
+            <p>{userAdress}</p>
           </div>
         </div>
       </div>

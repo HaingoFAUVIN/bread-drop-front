@@ -1,3 +1,5 @@
+@import '../../../styles/vars';
+
 .checkin-page {
   display: flex;
   justify-content: space-between;
@@ -17,12 +19,18 @@
 
     .checkin-card {
       position: absolute;
-      top: 100px;
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: rgba(255, 255, 255, 0.4);
       padding: 20px;
       text-align: center;
+      border-radius: 10px;
+      top: 57%;
+      font-size: 20px;
+      font-weight: bold;
+      color: $base-color;
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px) grayscale(0.3);
 
       &--title {
         font-size: x-large;
@@ -47,6 +55,7 @@
       font-size: xx-large;
       margin-top: 2rem;
       color: white;
+      margin-bottom: 1rem;
     }
 
     form {
@@ -60,9 +69,11 @@
         margin: 0 auto;
       
         p {
-          color: white;
-          margin-bottom: 15px;
+          color: black;
+          margin-top: 15px;
+          margin-bottom: 5px;
           text-align: left;
+          font-weight: bold;
         }
       
         input {
@@ -70,8 +81,10 @@
           padding: 10px;
           border-radius: 5px;
           border: none;
-          background-color: #d9d9d9;
-          width: 100%;  
+          background-color: $third-color;
+          width: 100%;
+          color: $base-color;
+          font-weight: bold;
         }
       }
 
@@ -82,8 +95,7 @@
         position: relative;
 
         .form-button {
-          margin: 10px 0;
-          padding: 10px 20px;
+          padding: .5rem;
           border-radius: 10px;
           border: none;
           background-color: #47beed;
@@ -123,14 +135,24 @@
           margin-bottom: 15px;
         }
       }
-
-      hr {
-        width: 100%;
-        color: black;
-      }
     }
   }
 }
+
+.userSelection{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+.roleUser{
+  text-align: center;
+  font-weight: bold;
+}
+::placeholder {
+  font-style: italic;
+  font-size: 13px;
+}
+
 @media (max-width: 767px) {
   .button-group .checkin-button::after,
   .button-group .triangle-card {
@@ -145,5 +167,16 @@
   }
   .checkin-page .checkin-form-section form .input-group p {
     margin-bottom: 0px;
+  }
+
+  .userSelection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    margin-bottom: 1rem;
+  }
+  .roleUser{
+    text-align: center;
+    font-weight: bold;
   }
 }

@@ -1,32 +1,20 @@
 import './Login.scss';
-import { Link } from 'react-router-dom';
+import { Link, redirect, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import axios from 'axios';
-import { UserContext } from '../../Profile/UserContext';
+import { UserContext } from '../../../contexts/UserContext';
 import loginImage from '../../../assets/Login.jpg';
 
 function Login() {
   const [username, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { setUser } = useContext(UserContext);
+  const { setUser, setIsUserLoggedIn } = useContext(UserContext);
+
+  const navigate = useNavigate();
 
   const api = axios.create({
-    baseURL: 'http://davyvistel-server.eddi.cloud/',
+    baseURL: 'https://davyvistel-server.eddi.cloud/',
   });
-
-  const getUserInfo = async (userId) => {
-    try {
-      const response = await api.get(`api/utilisateurs/${userId}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        }
-      });
-      return response.data;
-    } catch (error) {
-      console.log(error.response.data);
-      return null;
-    }
-  };
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -35,14 +23,12 @@ function Login() {
         username,
         password,
       });
-      localStorage.setItem('token', response.data.token);
-
-      const userId = response.data.user_id;
-      const userInfo = await getUserInfo(userId);
-
-      setUser(userInfo);
+      sessionStorage.setItem('token', response.data.token);
+      setIsUserLoggedIn(true);
+      navigate('/home'); 
     } catch (error) {
       console.log(error.response.data);
+      setIsUserLoggedIn(false);
     }
   };
 
@@ -64,16 +50,13 @@ function Login() {
             <button className="form-button" type="submit">Connexion</button>
           </div>
         </form>
-
-        <hr />
-
-        <div className="first-time-section">
-          <p>Première Fois ?</p>
-          <div className="button-group">
-            <Link to="/inscription" className="form-button registration-button">
-              Inscription
-            </Link>
-          </div>
+        <div className="inscription">
+          <Link to="/inscription" className="form-button registration-button">
+            <div className="first-time-section">
+              <p className="paragraphe1">Première fois sur BreadDrop ?</p>
+              <p className="paragraphe2">Inscrivez-vous</p>
+            </div>
+          </Link>
         </div>
       </div>
 
