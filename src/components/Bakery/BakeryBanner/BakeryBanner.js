@@ -14,8 +14,8 @@ function BakeryBanner({ bakery, bakeryHours }) {
   return (
     <div className="banner">
       <div className="banner-card">
-        <h1>{bakery ? bakery.name : 'Chargement...'}</h1>
-        <p>{bakery ? bakery.adress : 'Chargement...'}</p>
+        <h1 className="banner-title">{bakery ? bakery.name : 'Chargement...'}</h1>
+        <p className="banner-texte">{bakery ? bakery.adress : 'Chargement...'}</p>
         {currentDayHours && (
           <div>
             <p>

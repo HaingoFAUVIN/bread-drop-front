@@ -8,17 +8,21 @@ import { Link } from 'react-router-dom';
 function BakeryTitleBread({ isVisible, setIsVisible }) {
   return (
     <section className="category">
-      <h1 className="category-title"> PAINS</h1>
-      <Link
-        className="category-button"
-        onClick={() => {
-          // console.log('Boutton cliqué');
-          setIsVisible(!isVisible);
-        }}
-      >
-        {/* STYLISER LE BUTTON  */}
-        {isVisible ? <ArrowCircleUpOutlinedIcon /> : <ArrowCircleDownOutlinedIcon />}
-      </Link>
+      <div className="category-h1">
+        <h1 className="category-title">PAINS</h1>
+      </div>
+      <div className="category-div">
+        <Link
+          className="category-button"
+          onClick={() => {
+            // console.log('Boutton cliqué');
+            setIsVisible(!isVisible);
+          }}
+        >
+          {/* STYLISER LE BUTTON  */}
+          {isVisible ? <ArrowCircleUpOutlinedIcon sx={{ fontSize: 40 }} /> : <ArrowCircleDownOutlinedIcon sx={{ fontSize: 40 }} />}
+        </Link>
+      </div>
     </section>
   );
 }

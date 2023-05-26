@@ -115,7 +115,9 @@
       input {
         padding: 10px;
         border-radius: 5px;
-        border: 1px solid gray;
+        border: none;
+        background-color: $third-color;
+
       }
 
       p {
