@@ -1,11 +1,11 @@
 .banner {
-  position: relative; // A ENLEVER ?
+  position: relative;
   width: 100%;
   height: 50vh;
   background-image: url(../../../assets/pexels-dmitry-zvolskiy-2253643.jpg);
-  background-size: cover; // A ENLEVER ?
-  background-position: center; // A ENLEVER ?
-  background-repeat: no-repeat; // A ENLEVER ?
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   .banner-card {
     position: absolute;
@@ -26,6 +26,13 @@
 
   .banner-title{
     font-weight: bold;
+    font-size: 25px;
+    margin-top: 1rem;
+    margin-bottom: .25rem;
+  }
+
+  .banner-texte{
+    font-size: 20px 
   }
 }
 
@@ -37,6 +44,16 @@
     .banner-card {
       height: 60%;
       width: 90%;
+    }
+
+    .banner-title{
+      margin-top: .25rem;
+      font-weight: bold;
+      font-size: 20px
+    }
+    
+    .banner-texte{
+      font-size: 13px
     }
   }
 }
