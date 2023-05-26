@@ -24,6 +24,7 @@ function BakeriesList() {
   const bakeries = async () => {
     try {
       const response = await api.get('api/boulangeries');
+      console.log(response.data);
       const bakeriesWithCoords = await Promise.all(
         response.data.map(async (bakery) => {
           const geoResponse = await axios.get(

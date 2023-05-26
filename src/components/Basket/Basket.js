@@ -32,7 +32,6 @@ const handlePayment = async () => {
     status: false,
     delivery: true,
     schedule: time,
-    createdAt: new Date().toISOString(),
     user: userid,
     products: cart.map(item => item.id)
   };
