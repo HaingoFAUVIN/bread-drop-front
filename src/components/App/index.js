@@ -11,6 +11,7 @@ import NotFound from '../NotFound/NotFound';
 import Orders from '../Profile/Orders';
 import Basket from '../Basket/Basket';
 import EditProfile from '../Profile/EditProfile';
+// import Basket from '../Basket/BasketBis';
 
 function App() {
   const [isVisible, setIsVisible] = useState(true);

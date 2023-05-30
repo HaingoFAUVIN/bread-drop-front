@@ -49,11 +49,11 @@ function Orders() {
               <p className="newCard-date" id="date">Commande effectué le 01-05-2023</p>
             </div>
             <div className="newCard-product">
-              <p className="newCard-productName">Baguette</p>
+              <p className="newCard-productName">Baguette x1</p>
               <p className="newCard-productPrice">1.5€</p>
             </div>
             <div className="newCard-product">
-              <p className="newCard-productName">Croissant</p>
+              <p className="newCard-productName">Croissants x2</p>
               <p className="newCard-productPrice">2€</p>
             </div>
             <div className="newCard-total">
@@ -74,11 +74,11 @@ function Orders() {
               <p className="newCard-date" id="date">Commande effectué le 01-05-2023</p>
             </div>
             <div className="newCard-product">
-              <p className="newCard-productName">Baguette</p>
+              <p className="newCard-productName">Baguette x1</p>
               <p className="newCard-productPrice">1.5€</p>
             </div>
             <div className="newCard-product">
-              <p className="newCard-productName">Croissant</p>
+              <p className="newCard-productName">Croissant x2</p>
               <p className="newCard-productPrice">2€</p>
             </div>
             <div className="newCard-total">
@@ -99,11 +99,11 @@ function Orders() {
               <p className="newCard-date" id="date">Commande effectué le 01-05-2023</p>
             </div>
             <div className="newCard-product">
-              <p className="newCard-productName">Baguette</p>
+              <p className="newCard-productName">Baguette x1</p>
               <p className="newCard-productPrice">1.5€</p>
             </div>
             <div className="newCard-product">
-              <p className="newCard-productName">Croissant</p>
+              <p className="newCard-productName">Croissant x2</p>
               <p className="newCard-productPrice">2€</p>
             </div>
             <div className="newCard-total">
@@ -124,11 +124,11 @@ function Orders() {
               <p className="newCard-date" id="date">Commande effectué le 01-05-2023</p>
             </div>
             <div className="newCard-product">
-              <p className="newCard-productName">Baguette</p>
+              <p className="newCard-productName">Baguette x1</p>
               <p className="newCard-productPrice">1.5€</p>
             </div>
             <div className="newCard-product">
-              <p className="newCard-productName">Croissant</p>
+              <p className="newCard-productName">Croissant x2</p>
               <p className="newCard-productPrice">2€</p>
             </div>
             <div className="newCard-total">
