@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './styles.scss';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from '../../contexts/CartContext';
@@ -28,7 +28,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route
               path="/boulangeries/:id"
-              element={
+              element={(
                 <Bakery
                   isVisible={isVisible}
                   setIsVisible={setIsVisible}
@@ -39,7 +39,7 @@ function App() {
                   isVisible4={isVisible4}
                   setIsVisible4={setIsVisible4}
                 />
-              }
+              )}
             />
             <Route path="/profil" element={<Orders />} />
             <Route path="/edit-profil" element={<EditProfile />} />

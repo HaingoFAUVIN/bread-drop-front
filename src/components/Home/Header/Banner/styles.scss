@@ -18,8 +18,16 @@
     text-align: center;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    line-height: 2rem;
+    line-height: 2.5rem;
+    
   }
+
+  .banner-card h1 {
+    font-weight: bold;
+    margin-top: 1rem;
+    font-size: 25px;
+  }
+
 }
 
 
@@ -29,8 +37,13 @@
 
     &-card {
       padding: 0.5rem;
-      line-height: 1.5rem;
-      font-size: 0.9rem;
+      line-height: .5rem;
+    }
+
+    .banner-card h1 {
+      font-weight: bold;
+      margin-top: 1rem;
+      font-size:20px;
     }
   }
 }
@@ -43,6 +56,12 @@
       padding: 0.5rem;
       line-height: 1.2rem;
       font-size: 0.8rem;
+    }
+
+    .banner-card h1 {
+      font-weight: bold;
+      margin-top: 1rem;
+      font-size: 13px;
     }
   }
 }

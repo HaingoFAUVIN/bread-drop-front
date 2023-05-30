@@ -24,6 +24,7 @@ function BakeriesList() {
   const bakeries = async () => {
     try {
       const response = await api.get('api/boulangeries');
+      console.log(response.data);
       const bakeriesWithCoords = await Promise.all(
         response.data.map(async (bakery) => {
           const geoResponse = await axios.get(
@@ -92,7 +93,7 @@ function BakeriesList() {
     <div className="bakerie">
       <div className="search-container">
         <input className="bakerie-search" type="text" placeholder="Entrer votre adresse" onChange={(e) => setSearch(e.target.value)} />
-        <button onClick={handleSearch}> Rechercher</button>
+        <button className="bakerie-searchBis" onClick={handleSearch}> Rechercher</button>
       </div>
       <h1 className="bakerie-section-title"> </h1>
       <div className="bakerie-element">

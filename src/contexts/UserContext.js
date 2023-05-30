@@ -13,8 +13,8 @@ export const UserProvider = ({ children }) => {
     
     if (token) {
       let decodedToken = jwt_decode(token);
-        console.log(decodedToken);
-        console.log(decodedToken.username);
+        sessionStorage.setItem('userRoles', decodedToken.roles);
+        console.log(decodedToken.roles);
 
       const api = axios.create({
         baseURL: 'https://davyvistel-server.eddi.cloud/',
@@ -28,7 +28,6 @@ export const UserProvider = ({ children }) => {
             const response = await api.get('api/utilisateurs');
             if (response.data) {
               const user = response.data.find(user => user.email === decodedToken.username);
-              console.log(user)
               if (user) {
                 console.log(user);
                 sessionStorage.setItem('userId', user.id);
@@ -36,6 +35,7 @@ export const UserProvider = ({ children }) => {
                 sessionStorage.setItem('lastName', user.lastname);
                 sessionStorage.setItem('userEmail', user.email);
                 sessionStorage.setItem('userAddress', user.adress);
+                sessionStorage.setItem('userOrders', JSON.stringify(user.orders));
                 setUser(user);
               }
             }
