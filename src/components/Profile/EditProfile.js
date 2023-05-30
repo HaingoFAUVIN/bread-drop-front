@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { UserContext } from '../../contexts/UserContext';
 import Nav from '../Home/Header/Nav/Nav';
@@ -10,40 +10,57 @@ import './EditProfile.scss';
 
 function EditProfile() {
   const { user, setUser } = useContext(UserContext);
-  const usermail = sessionStorage.getItem('userEmail');
-  const userFirstName = sessionStorage.getItem('userName');
-  const userLastName = sessionStorage.getItem('lastName');
   const userid = sessionStorage.getItem('userId');
-  const userAdress = sessionStorage.getItem('userAddress');
+  const token = sessionStorage.getItem('token');
 
-  const [email, setEmail] = useState(usermail);
-  const [address, setAddress] = useState(userAdress);
-  const [oldPassword, setOldPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [adress, setAdress] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
 
   const [showEmailForm, setShowEmailForm] = useState(false);
-  const [showAddressForm, setShowAddressForm] = useState(false);
-  const [showPasswordForm, setShowPasswordForm] = useState(false);
+  const [showAdressForm, setShowAdressForm] = useState(false);
 
   const navigate = useNavigate();
 
-  const handleUpdate = async (event) => {
+  useEffect(() => {
+    setEmail(sessionStorage.getItem('userEmail'));
+    setAdress(sessionStorage.getItem('userAdress'));
+    setFirstName(sessionStorage.getItem('userName'));
+    setLastName(sessionStorage.getItem('lastName'));
+  }, []);
+
+  const handleUpdate = async (event, fieldToUpdate) => {
     event.preventDefault();
 
     const api = axios.create({
-      baseURL: 'http://davyvistel-server.eddi.cloud/',
+      baseURL: 'https://davyvistel-server.eddi.cloud/',
       headers: {
-        Authorization: 'Bearer',
+        Authorization: `Bearer`, 
       },
     });
 
+    const updateData = {};
+    switch (fieldToUpdate) {
+      case 'email':
+        updateData.email = email;
+        break;
+      case 'adress':
+        updateData.adress = adress;
+        break;
+      default:
+        break;
+    }
+
+    console.log('fieldToUpdate:', fieldToUpdate);
+    console.log('updateData:', updateData);
     try {
-      const response = await api.put(`/api/utilisateurs/${userid}/modifier`, { email, address });
+      const response = await api.put(`/api/utilisateurs/${userid}/modifier`, JSON.stringify(updateData));
 
       if (response.data.email) {
         setUser(response.data);
         sessionStorage.setItem('userEmail', response.data.email);
-        sessionStorage.setItem('userAddress', response.data.adress); // Notez que c'est "adress", pas "address"
+        sessionStorage.setItem('userAdress', response.data.adress);
         navigate('/edit-profil');
       } else {
         alert('La mise à jour du profil a échoué');
@@ -52,32 +69,6 @@ function EditProfile() {
       console.error('Failed to update profile:', error);
     }
   };
-
-  const handleChangePassword = async (event) => {
-    event.preventDefault();
-
-    const api = axios.create({
-      baseURL: 'http://davyvistel-server.eddi.cloud/',
-      headers: {
-        Authorization: 'Bearer',
-      },
-    });
-
-    try {
-      const response = await api.put(`/api/utilisateurs/${userid}/modifier`, { oldPassword, newPassword });
-
-      if (response.data.success) {
-        alert('Mot de passe modifié avec succès');
-        setOldPassword('');
-        setNewPassword('');
-      } else {
-        alert(response.data.message);
-      }
-    } catch (error) {
-      console.error('Failed to change password:', error);
-    }
-  };
-
   return (
     <div className="edit-profile">
       <Nav />
@@ -86,8 +77,8 @@ function EditProfile() {
         <div className="user-details">
           <img className="user-image" src={UserPic} alt="Jean Dupont" />
           <div className="name-address">
-            <h1>{userFirstName} {userLastName}</h1>
-            <p>{userAdress}</p>
+            <h1>{firstName} {lastName}</h1>
+            <p>{adress}</p>
           </div>
         </div>
       </div>
@@ -98,7 +89,7 @@ function EditProfile() {
 
       <div className="account">
         {showEmailForm ? (
-          <form onSubmit={handleUpdate}>
+          <form onSubmit={(event) => handleUpdate(event, 'email')}>
             <div className="account-info">
               <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
               <button type="submit">Modifier</button>
@@ -106,39 +97,21 @@ function EditProfile() {
           </form>
         ) : (
           <div className="account-info">
-            <label>{usermail}</label>
+            <label>{email}</label>
             <button type="button" onClick={() => setShowEmailForm(true)}>Modifier</button>
           </div>
         )}
-        {showAddressForm ? (
-          <form onSubmit={handleUpdate}>
+        {showAdressForm ? (
+          <form onSubmit={(event) => handleUpdate(event, 'adress')}>
             <div className="account-info">
-              <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} required />
+              <input type="text" value={adress} onChange={(e) => setAdress(e.target.value)} required />
               <button type="submit">Modifier</button>
             </div>
           </form>
         ) : (
           <div className="account-info">
-            <label>{userAdress}</label>
-            <button type="button" onClick={() => setShowAddressForm(true)}>Modifier</button>
-          </div>
-        )}
-        {showPasswordForm ? (
-          <form onSubmit={handleChangePassword} style={{ flexDirection: 'column' }}>
-            <div className="account-info">
-              <label>Ancien mot de passe</label>
-              <input style={{ padding: '10px', margin: '10px 0' }} type="password" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} required />
-            </div>
-            <div className="account-info">
-              <label>Nouveau mot de passe</label>
-              <input style={{ padding: '10px', margin: '10px 0' }} type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required />
-            </div>
-            <button className="submit-button" type="submit">Modifier le mot de passe</button>
-          </form>
-        ) : (
-          <div className="account-info">
-            <label>Mot de Passe</label>
-            <button className="submit-button" type="button" onClick={() => setShowPasswordForm(true)}>Modifier</button>
+            <label>{adress}</label>
+            <button type="button" onClick={() => setShowAdressForm(true)}>Modifier</button>
           </div>
         )}
       </div>

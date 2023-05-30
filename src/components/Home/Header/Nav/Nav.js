@@ -13,7 +13,11 @@ function Nav() {
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
   const { user, isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext);
 
-  const userRoles = sessionStorage.getItem('userRoles');
+  const userRole = sessionStorage.getItem('userRoles');
+  const userId = sessionStorage.getItem('userId');
+  console.log(userId);
+
+  const isManager = userRole === 'ROLE_MANAGER';
 
 
   const handleOpenOverlay = () => {
@@ -47,11 +51,11 @@ function Nav() {
           <ShoppingCartIcon fontSize="small" />
           Panier
         </Link>
-        {/* {userRoles.includes('ROLE_MANAGER') && (
-          <Link to="?" className="navbar-item navbar-pro">
+        {isManager && (
+          <Link to={`https://davyvistel-server.eddi.cloud/back/boulangerie/utilisateur/${userId}`} className="navbar-item navbar-pro">
             BreadDrop Pro
           </Link>
-        )} */}
+        )}
         {isUserLoggedIn ? (
           <Link to="/profil" className="navbar-profile">
             <img className="navbar-profile-img" src={profileImg} alt="profile" height="50" width="50" />
@@ -75,9 +79,11 @@ function Nav() {
             <Link to="/profil" className="navbar-mobile-item navbar-panier">
               Mon compte
             </Link>
-            {/* <Link to="?" className="navbar-item navbar-pro" style={{ display: (user && user.role.includes('ROLE_MANAGER')) ? 'block' : 'none' }}>
-              BreadDrop Pro
-            </Link> */}
+            {isManager && (
+              <Link to={`https://davyvistel-server.eddi.cloud/back/boulangerie/utilisateur/${userId}`} className="navbar-item navbar-pro">
+                BreadDrop Pro
+              </Link>
+            )}
           </div>
           <div className='overlay-bottom'>
             {isUserLoggedIn  ? (
