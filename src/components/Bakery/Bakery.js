@@ -39,7 +39,7 @@ function Bakery({
   const [isLoading, setIsLoading] = useState(true);
 
   const api = axios.create({
-    baseURL: 'http://davyvistel-server.eddi.cloud/',
+    baseURL: 'https://davyvistel-server.eddi.cloud/',
     headers: {
       Authorization: 'Bearer',
     },

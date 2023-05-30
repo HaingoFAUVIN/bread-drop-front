@@ -7,7 +7,7 @@ import './styles.scss';
 function Basket() {
 
   const api = axios.create({
-    baseURL: 'http://davyvistel-server.eddi.cloud/',
+    baseURL: 'https://davyvistel-server.eddi.cloud/',
     headers: {
       Authorization: 'Bearer',
     },
@@ -23,27 +23,31 @@ function Basket() {
   const userid = sessionStorage.getItem('userId');
 
 
-const handlePayment = async () => {
-  let [date, time] = dateTime.split('T');
-
-  const order = {
-    date: date,
-    price: total,
-    status: false,
-    delivery: true,
-    schedule: time,
-    user: userid,
-    products: cart.map(item => item.id)
+  const handlePayment = async () => {
+    let [date, time] = dateTime.split('T');
+  
+    const orderProducts = cart.map(item => {
+      return { product: item.id, quantity: item.quantity };
+    });
+    
+    const order = {
+      date: date,
+      price: total,
+      status: false,
+      delivery: true,
+      schedule: time,
+      user: userid,
+      orderProducts: orderProducts
+    };
+  
+    try {
+      const response = await api.post('api/commandes', order);
+      console.log(response.data);
+      clearCart(); 
+    } catch (error) {
+      console.error('Erreur dans la commande.', error);
+    }
   };
-
-  try {
-    const response = await api.post('api/commandes', order);
-    console.log(response.data);
-    clearCart(); 
-  } catch (error) {
-    console.error('Erreur dans la commande.', error);
-  }
-};
 
   return (
     <>
