@@ -93,7 +93,7 @@ function BakeriesList() {
     <div className="bakerie">
       <div className="search-container">
         <input className="bakerie-search" type="text" placeholder="Entrer votre adresse" onChange={(e) => setSearch(e.target.value)} />
-        <button onClick={handleSearch}> Rechercher</button>
+        <button className="bakerie-searchBis" onClick={handleSearch}> Rechercher</button>
       </div>
       <h1 className="bakerie-section-title"> </h1>
       <div className="bakerie-element">
