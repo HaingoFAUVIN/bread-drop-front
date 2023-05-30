@@ -1,6 +1,8 @@
+// Importer les styles nécessaires
 import './styles.scss';
 
 function Banner() {
+  // Rendu du composant
   return (
     <div className="banner">
       <div className="banner-card">
@@ -10,4 +12,5 @@ function Banner() {
   );
 }
 
+// Exporter le composant Banner pour pouvoir l'utiliser dans d'autres modules
 export default Banner;

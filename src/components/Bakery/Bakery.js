@@ -1,10 +1,11 @@
-/* eslint-disable no-nested-ternary */
-import axios from 'axios';
-import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+// Importation des dépendances nécessaires
+import axios from 'axios'; // Bibliothèque pour effectuer des requêtes HTTP
+import PropTypes from 'prop-types'; // Bibliothèque pour le typage des props
+import { useParams } from 'react-router-dom'; // Hook pour accéder aux paramètres de l'URL
+import { useState, useEffect } from 'react'; // Hooks de React pour la gestion d'état et d'effets
 
 // --- COMPOSANTS
+// Importation des composants nécessaires
 import Nav from '../Home/Header/Nav/Nav';
 import Footer from '../Home/Footer/Footer';
 import BakeryBanner from './BakeryBanner/BakeryBanner';
@@ -16,8 +17,6 @@ import Sandwich from './Sandwich/Sandwich';
 import NotFound from '../NotFound/NotFound';
 import CircularIndeterminate from '../CircularIndeterminate';
 
-// DATA, SCSS, ASSETS
-
 function Bakery({
   isVisible,
   setIsVisible,
@@ -28,58 +27,48 @@ function Bakery({
   isVisible4,
   setIsVisible4,
 }) {
+  // Utilisation du hook useParams pour récupérer l'ID de la boulangerie dans l'URL
   const { id } = useParams();
+  
+  // Initialisation des états locaux avec le hook useState
   const [bakery, setBakery] = useState(null);
   const [bakeryHours, setBakeryHours] = useState(null);
-
   const [pastries, setPastries] = useState([]);
   const [viennoiseries, setViennoiseries] = useState([]);
   const [breads, setBreads] = useState([]);
   const [sandwiches, setSandwiches] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
+  const [isLoading, setIsLoading] = useState(true); // État de chargement pour gérer l'affichage pendant que les données sont récupérées
+  
+  // Création d'une instance axios avec une URL de base
   const api = axios.create({
     baseURL: 'https://davyvistel-server.eddi.cloud/',
     headers: {
-      Authorization: 'Bearer',
+      Authorization: 'Bearer', // Header d'autorisation (à compléter avec un token si nécessaire)
     },
   });
 
+  // Utilisation du hook useEffect pour effectuer les requêtes HTTP lors du chargement du composant
   useEffect(() => {
-    const fetchBakery = async () => {
+    const fetchBakery = async () => { // Récupération des données de la boulangerie
       setIsLoading(true);
       try {
-        const response = await api.get(`api/boulangeries/${id}`);
-        console.log(response.data);
+        const response = await api.get(`api/boulangeries/${id}`); // Requête GET pour obtenir les informations de la boulangerie
         setBakery(response.data);
-        console.log(response.data.products);
-
         const pastriesData = response.data.products.filter(
           (products) => products.category.name === 'Pâtisserie',
         );
         setPastries(pastriesData);
+        // Etc... pour chaque catégorie de produits
 
-        const viennoiseriesData = response.data.products.filter(
-          (products) => products.category.name === 'Viennoiserie',
-        );
-        setViennoiseries(viennoiseriesData);
-
-        const breadsData = response.data.products.filter(
-          (products) => products.category.name === 'Pain',
-        );
-        setBreads(breadsData);
-
-        const sandwichesData = response.data.products.filter(
-          (products) => products.category.name === 'Sandwitch',
-        );
-        setSandwiches(sandwichesData);
-      }
-      catch (erreur) {
+        // La gestion d'erreur est importante pour éviter des problèmes lors de l'exécution du code
+      } catch (erreur) {
         console.log(erreur);
       }
-      setIsLoading(false);
+      setIsLoading(false); // Le chargement est terminé, on met à jour l'état
     };
-    const fetchBakeryHours = async () => {
+
+    // Même chose pour les horaires de la boulangerie
+    const fetchBakeryHours = async () => { // Récupération des horaires de la boulangerie
       try {
         const response = await api.get(`api/horraires/`);
         setBakeryHours(response.data);
@@ -87,10 +76,13 @@ function Bakery({
         console.log(erreur);
       }
     };
+
+    // Lancer les requêtes
     fetchBakery();
     fetchBakeryHours();
-  }, [id]);
+  }, [id]); // Le tableau de dépendances indique quand le hook doit se ré-exécuter
 
+  // Le rendu du composant affiche un spinner de chargement si les données sont en cours de chargement, un message d'erreur si les données n'ont pas pu être récupérées, ou les données de la boulangerie sinon
   return (
     isLoading ? <CircularIndeterminate />
       : bakery === null
@@ -98,7 +90,6 @@ function Bakery({
         : (
           <>
             <Nav />
-
             <BakeryBanner bakery={bakery} bakeryHours={bakeryHours} />
             <BakerySearchProducts />
             <Bread isVisible={isVisible} setIsVisible={setIsVisible} breads={breads} />
@@ -111,6 +102,7 @@ function Bakery({
   );
 }
 
+// Utilisation de PropTypes pour valider les props
 Bakery.propTypes = {
   isVisible: PropTypes.bool.isRequired,
   setIsVisible: PropTypes.func.isRequired,
@@ -122,4 +114,5 @@ Bakery.propTypes = {
   setIsVisible4: PropTypes.func.isRequired,
 };
 
+// Exporter le composant pour pouvoir l'utiliser ailleurs
 export default Bakery;

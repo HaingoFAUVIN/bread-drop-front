@@ -1,9 +1,18 @@
+// Importer les styles spécifiques à ce composant
 import './CheckIn.scss';
+
+// Importer Axios pour les appels API
 import axios from 'axios';
+
+// Importer useState pour gérer l'état local
 import { useState } from 'react';
+
+// Importer l'image qui sera utilisée dans ce composant
 import checkinImage from '../../../assets/CheckIn.jpg';
 
+// Composant CheckIn, qui est le formulaire d'inscription pour les nouveaux utilisateurs
 function CheckIn() {
+  // Définir les variables d'état pour chaque champ du formulaire
   const [lastname, setLastName] = useState('');
   const [firstname, setFirstName] = useState('');
   const [email, setEmail] = useState('');
@@ -11,16 +20,20 @@ function CheckIn() {
   const [adress, setAdress] = useState('');
   const [role, setRole] = useState(['ROLE_USER']);
 
+  // Créer une instance d'axios avec des configurations par défaut
   const api = axios.create({
-    baseURL: 'https://davyvistel-server.eddi.cloud/',
+    baseURL: 'https://davyvistel-server.eddi.cloud/',  // URL de base pour toutes les demandes à l'API
     headers: {
-      Authorization: 'Bearer',
+      Authorization: 'Bearer',  // Le token d'autorisation qui sera ajouté dans les headers de chaque requête
     },
   });
 
+  // Fonction à exécuter lors de la soumission du formulaire
   const handleInscription = async (event) => {
-    event.preventDefault();
+    event.preventDefault();  // Empêcher le comportement par défaut de la soumission du formulaire
+
     try {
+      // Envoyer une requête POST à l'API pour créer un nouvel utilisateur avec les données du formulaire
       const response = await api.post('api/utilisateurs', {
         lastname,
         firstname,
@@ -29,12 +42,14 @@ function CheckIn() {
         adress,
         roles: [role],
       });
-      console.log(response.data);
+
+      console.log(response.data);  // Imprimer la réponse de l'API dans la console
     } catch (error) {
-      console.log(error);
+      console.log(error);  // Imprimer l'erreur dans la console si la requête échoue
     }
   };
 
+  // Rendu du composant
   return (
     <div className="checkin-page">
       <div className="checkin-form-section">
@@ -93,4 +108,5 @@ function CheckIn() {
   );
 }
 
+// Exporter le composant CheckIn pour permettre son utilisation dans d'autres fichiers
 export default CheckIn;

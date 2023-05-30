@@ -1,10 +1,18 @@
+// Importer le CSS spécifique pour ce composant
 import './styles.scss';
+
+// Importer Link et NavLink pour la navigation
 import { Link, NavLink } from 'react-router-dom';
+
+// Importer les icônes pour les médias sociaux
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+
+// Importer le logo
 import Logo from '../../../assets/Logo.png';
 
+// Composant Footer qui représente le pied de page de l'application
 function Footer() {
   return (
     <section className="footer">
@@ -26,6 +34,7 @@ function Footer() {
             <div className="footer-link3">CONTACT</div>
           </NavLink>
         </div>
+
         <div className="footer-linkTwo">
           <NavLink to="/home">
             <div className="footer-link4">MENTIONS LEGALES</div>
@@ -38,6 +47,7 @@ function Footer() {
           </NavLink>
         </div>
       </div>
+
       <div className="footer-sociaux">
         <Link to="#" className="footer-sociaux-icons"><InstagramIcon /></Link>
         <Link to="#" className="footer-sociaux-icons"><FacebookIcon /></Link>
@@ -46,4 +56,6 @@ function Footer() {
     </section>
   );
 }
+
+// Exporter le composant Footer pour permettre son utilisation dans d'autres fichiers
 export default Footer;

@@ -1,12 +1,15 @@
-import { useState } from 'react';
-import './styles.scss';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+// Importer les modules nécessaires
+import { useState } from 'react';  // Importe la fonction useState pour gérer l'état des composants
+import './styles.scss';  // Importe les styles du composant FAQ
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';  // Importe l'icône ArrowDownward de la librairie MUI
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';  // Importe l'icône ArrowUpward de la librairie MUI
 
-
+// Composant FAQ pour afficher une liste de questions fréquemment posées
 function Faq() {
+  // Initialise l'index de la question ouverte à null (aucune question n'est initialement ouverte)
   const [openedQuestionIndex, setOpenedQuestionIndex] = useState(null);
 
+  // Définit un tableau de questions et de réponses à afficher
   const questions = [
     {
       question: 'Question - Qui livre les produits ?',
@@ -25,14 +28,18 @@ function Faq() {
     },
   ];
 
+  // Gère l'ouverture et la fermeture des réponses en cliquant sur une question
   const handleOpenAnswer = (index) => {
+    // Si la question cliquée est déjà ouverte, la ferme en réglant l'index de la question ouverte sur null
     if (openedQuestionIndex === index) {
       setOpenedQuestionIndex(null);
     } else {
+      // Sinon, ouvre la question cliquée en réglant l'index de la question ouverte sur l'index de la question cliquée
       setOpenedQuestionIndex(index);
     }
   };
 
+  // Rendu du composant
   return (
     <div className="faq">
       <h1>FAQ</h1>
@@ -66,4 +73,5 @@ function Faq() {
   );
 }
 
+// Exporter le composant FAQ pour permettre son utilisation dans d'autres fichiers
 export default Faq;

@@ -1,20 +1,23 @@
-import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { UserContext } from '../../contexts/UserContext';
-import Nav from '../Home/Header/Nav/Nav';
-import Banner from '../../assets/UserBanner.png';
-import Bakery from '../../assets/Bakery.jpg';
-import UserPic from '../../assets/User.jpg';
-import './Orders.scss';
+// Importer les modules nécessaires
+import { Link } from 'react-router-dom';  // Importe le composant Link de react-router-dom pour permettre la navigation
+import { useContext } from 'react';  // Importe la fonction useContext pour accéder au contexte
+import { UserContext } from '../../contexts/UserContext';  // Importe le contexte de l'utilisateur
+import Nav from '../Home/Header/Nav/Nav';  // Importe le composant Nav qui représente la barre de navigation
+import Banner from '../../assets/UserBanner.png';  // Importe l'image de la bannière utilisateur
+import Bakery from '../../assets/Bakery.jpg';  // Importe l'image de la boulangerie
+import UserPic from '../../assets/User.jpg';  // Importe l'image de l'utilisateur
+import './Orders.scss';  // Importe les styles spécifiques à ce composant
 
+// Composant Orders qui représente la page des commandes
 function Orders() {
-  const { user } = useContext(UserContext);
-  const usermail = sessionStorage.getItem('userEmail');
-  const userFirstName = sessionStorage.getItem('userName');
-  const userLastName = sessionStorage.getItem('lastName');
-  const userid = sessionStorage.getItem('userId');
-  const userAdress = sessionStorage.getItem('userAddress');
+  const { user } = useContext(UserContext);  // Récupère l'utilisateur à partir du contexte
+  const usermail = sessionStorage.getItem('userEmail');  // Récupère le courriel de l'utilisateur à partir de la sessionStorage
+  const userFirstName = sessionStorage.getItem('userName');  // Récupère le prénom de l'utilisateur à partir de la sessionStorage
+  const userLastName = sessionStorage.getItem('lastName');  // Récupère le nom de l'utilisateur à partir de la sessionStorage
+  const userid = sessionStorage.getItem('userId');  // Récupère l'ID de l'utilisateur à partir de la sessionStorage
+  const userAdress = sessionStorage.getItem('userAddress');  // Récupère l'adresse de l'utilisateur à partir de la sessionStorage
 
+  // Rendu du composant
   return (
     <div className="orders">
       <Nav />
@@ -82,4 +85,5 @@ function Orders() {
   );
 }
 
+// Exporter le composant Orders pour permettre son utilisation dans d'autres fichiers
 export default Orders;

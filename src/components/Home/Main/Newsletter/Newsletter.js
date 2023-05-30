@@ -1,7 +1,9 @@
+// Importer les modules et les styles nécessaires
 import './styles.scss';
 import NewsletterImg from '../../../../assets/newsletterImg.jpg';
 
 function Newsletter() {
+  // Rendu du composant
   return (
     <div className='newsletter'>
       <div className='newsletter-element'>
@@ -21,4 +23,5 @@ function Newsletter() {
     );
 }
 
+// Exporter le composant pour pouvoir l'utiliser dans d'autres modules
 export default Newsletter;

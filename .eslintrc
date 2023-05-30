@@ -40,7 +40,8 @@
     "prefer-exponentiation-operator": "off",
     "max-len": "off",
     "quotes": "off",
-    "jsx-a11y/label-has-associated-control": "off"
+    "jsx-a11y/label-has-associated-control": "off",
+    "no-multi-spaces": "off"
     },
   "settings": {
     "import/resolver": {
