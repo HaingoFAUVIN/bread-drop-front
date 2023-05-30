@@ -69,7 +69,6 @@ function EditProfile() {
       console.error('Failed to update profile:', error);
     }
   };
-
   return (
     <div className="edit-profile">
       <Nav />

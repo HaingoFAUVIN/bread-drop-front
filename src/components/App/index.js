@@ -42,9 +42,10 @@ function App() {
               )}
             />
             <Route path="/profil" element={<Orders />} />
-            <Route path="edit-profil" element={<EditProfile />} />
+            <Route path="/edit-profil" element={<EditProfile />} />
             <Route path="/panier" element={<Basket />} />
-            <Route path="*" element=<NotFound /> />
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
       </CartProvider>
