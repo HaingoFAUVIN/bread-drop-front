@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Importer les modules nécessaires
 import React, { useState } from 'react';  // Importe le module de base React ainsi que la fonction useState pour gérer l'état des composants
 import './styles.scss';  // Importe les styles généraux de l'application
@@ -12,6 +13,22 @@ import NotFound from '../NotFound/NotFound';  // Importe le composant de la page
 import Orders from '../Profile/Orders';  // Importe le composant de la page des commandes
 import Basket from '../Basket/Basket';  // Importe le composant de la page du panier
 import EditProfile from '../Profile/EditProfile'; // Importe le composant de la page d'édition de profil
+=======
+import { useState } from 'react';
+import './styles.scss';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { CartProvider } from '../../contexts/CartContext';
+import Home from '../Home/Home';
+import { UserProvider } from '../../contexts/UserContext';
+import Login from '../User/Login/Login';
+import CheckIn from '../User/CheckIn/CheckIn';
+import Bakery from '../Bakery/Bakery';
+import NotFound from '../NotFound/NotFound';
+import Orders from '../Profile/Orders';
+import Basket from '../Basket/Basket';
+import EditProfile from '../Profile/EditProfile';
+// import Basket from '../Basket/BasketBis';
+>>>>>>> fa720bf8bb4284c62d87b4f48644389bbe1c51a4
 
 // Composant principal de l'application
 function App() {
@@ -31,8 +48,13 @@ function App() {
             <Route path="/connexion" element={<Login />} />
             <Route path="/home" element={<Home />} />
             <Route
+<<<<<<< HEAD
               path="/boulangeries/:id" // Route pour la page d'une boulangerie en particulier. L'ID est passé en tant que paramètre
               element={
+=======
+              path="/boulangeries/:id"
+              element={(
+>>>>>>> fa720bf8bb4284c62d87b4f48644389bbe1c51a4
                 <Bakery
                   isVisible={isVisible} // Passe l'état de visibilité à l'élément Bakery
                   setIsVisible={setIsVisible} // Passe la fonction de mise à jour de l'état de visibilité à l'élément Bakery
@@ -43,7 +65,7 @@ function App() {
                   isVisible4={isVisible4}  // Passe l'état de visibilité 4 à l'élément Bakery
                   setIsVisible4={setIsVisible4}  // Passe la fonction de mise à jour de l'état de visibilité 4 à l'élément Bakery
                 />
-              }
+              )}
             />
             <Route path="/profil" element={<Orders />} />
             <Route path="/edit-profil" element={<EditProfile />} />

@@ -17,7 +17,13 @@ export const UserProvider = ({ children }) => {
     
     // Si un token est présent, l'utilisateur est connecté
     if (token) {
+<<<<<<< HEAD
       let decodedToken = jwt_decode(token);  // Décoder le token JWT
+=======
+      let decodedToken = jwt_decode(token);
+        sessionStorage.setItem('userRoles', decodedToken.roles);
+        console.log(decodedToken.roles);
+>>>>>>> fa720bf8bb4284c62d87b4f48644389bbe1c51a4
 
       // Créer une instance d'Axios avec la configuration de base
       const api = axios.create({
@@ -42,7 +48,12 @@ export const UserProvider = ({ children }) => {
                 sessionStorage.setItem('lastName', user.lastname);
                 sessionStorage.setItem('userEmail', user.email);
                 sessionStorage.setItem('userAddress', user.adress);
+<<<<<<< HEAD
                 setUser(user);  // Mettre à jour l'état de l'utilisateur
+=======
+                sessionStorage.setItem('userOrders', JSON.stringify(user.orders));
+                setUser(user);
+>>>>>>> fa720bf8bb4284c62d87b4f48644389bbe1c51a4
               }
             }
           }

@@ -20,9 +20,15 @@ function BakeryBanner({ bakery, bakeryHours }) {
   return (
     <div className="banner">
       <div className="banner-card">
+<<<<<<< HEAD
         <h1>{bakery ? bakery.name : 'Chargement...'}</h1>
         <p>{bakery ? bakery.adress : 'Chargement...'}</p>
         {currentDayHours && (  // Si les heures d'ouverture pour le jour actuel existent
+=======
+        <h1 className="banner-title">{bakery ? bakery.name : 'Chargement...'}</h1>
+        <p className="banner-texte">{bakery ? bakery.adress : 'Chargement...'}</p>
+        {currentDayHours && (
+>>>>>>> fa720bf8bb4284c62d87b4f48644389bbe1c51a4
           <div>
             <p>
               {`${currentDayHours.day}: ${currentDayHours.openMorning} - ${currentDayHours.closeMorning}`}

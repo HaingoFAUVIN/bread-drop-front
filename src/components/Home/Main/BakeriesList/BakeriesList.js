@@ -31,7 +31,12 @@ function BakeriesList() {
   // Fonction asynchrone pour récupérer la liste des boulangeries avec leurs coordonnées géographiques
   const bakeries = async () => {
     try {
+<<<<<<< HEAD
       const response = await api.get('api/boulangeries');  // Fait une requête GET pour récupérer la liste des boulangeries
+=======
+      const response = await api.get('api/boulangeries');
+      console.log(response.data);
+>>>>>>> fa720bf8bb4284c62d87b4f48644389bbe1c51a4
       const bakeriesWithCoords = await Promise.all(
         response.data.map(async (bakery) => {
           const geoResponse = await axios.get(
@@ -104,7 +109,7 @@ function BakeriesList() {
     <div className="bakerie">
       <div className="search-container">
         <input className="bakerie-search" type="text" placeholder="Entrer votre adresse" onChange={(e) => setSearch(e.target.value)} />
-        <button onClick={handleSearch}> Rechercher</button>
+        <button className="bakerie-searchBis" onClick={handleSearch}> Rechercher</button>
       </div>
       <h1 className="bakerie-section-title"> </h1>
       <div className="bakerie-element">

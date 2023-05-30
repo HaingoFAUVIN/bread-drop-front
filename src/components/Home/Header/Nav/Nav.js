@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Importer les modules nécessaires
 import { useState, useContext } from 'react';  // Importer useState pour gérer l'état local et useContext pour accéder au contexte
 import { Link } from 'react-router-dom';  // Importer Link pour gérer la navigation
@@ -7,6 +8,16 @@ import CloseIcon from '@mui/icons-material/Close';  // Importer l'icône de ferm
 import Logo from '../../../../assets/Logo.png';  // Importer le logo
 import profileImg from '../../../../assets/profile.jpg';  // Importer l'image de profil par défaut
 import { UserContext } from '../../../../contexts/UserContext';  // Importer le contexte utilisateur
+=======
+import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import { UserContext } from '../../../../contexts/UserContext';
+import Logo from '../../../../assets/Logo.png';
+import profileImg from '../../../../assets/profile.jpg';
+>>>>>>> fa720bf8bb4284c62d87b4f48644389bbe1c51a4
 
 import './styles.scss';  // Importer les styles du composant
 
@@ -17,7 +28,17 @@ function Nav() {
   // Utiliser le contexte utilisateur pour accéder aux informations de l'utilisateur et à l'état de connexion
   const { user, isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext);
 
+<<<<<<< HEAD
   // Fonction pour ouvrir l'overlay du menu responsive
+=======
+  const userRole = sessionStorage.getItem('userRoles');
+  const userId = sessionStorage.getItem('userId');
+  console.log(userId);
+
+  const isManager = userRole === 'ROLE_MANAGER';
+
+
+>>>>>>> fa720bf8bb4284c62d87b4f48644389bbe1c51a4
   const handleOpenOverlay = () => {
     setIsOverlayVisible(true);
   };
@@ -52,9 +73,11 @@ function Nav() {
           <ShoppingCartIcon fontSize="small" />
           Panier
         </Link>
-        <Link to="?" className="navbar-item navbar-pro">
-          BreadDrop Pro
-        </Link>
+        {isManager && (
+          <Link to={`https://davyvistel-server.eddi.cloud/back/boulangerie/utilisateur/${userId}`} className="navbar-item navbar-pro">
+            BreadDrop Pro
+          </Link>
+        )}
         {isUserLoggedIn ? (
           <Link to="/profil" className="navbar-profile">
             <img className="navbar-profile-img" src={profileImg} alt="profile" height="50" width="50" />
@@ -79,9 +102,11 @@ function Nav() {
             <Link to="/profil" className="navbar-mobile-item navbar-panier">
               Mon compte
             </Link>
-            <Link to="?" className="navbar-item navbar-pro" style={{ display: (user && user.role.includes('ROLE_MANAGER')) ? 'block' : 'none' }}>
-              BreadDrop Pro
-            </Link>
+            {isManager && (
+              <Link to={`https://davyvistel-server.eddi.cloud/back/boulangerie/utilisateur/${userId}`} className="navbar-item navbar-pro">
+                BreadDrop Pro
+              </Link>
+            )}
           </div>
           <div className='overlay-bottom'>
             {isUserLoggedIn  ? (

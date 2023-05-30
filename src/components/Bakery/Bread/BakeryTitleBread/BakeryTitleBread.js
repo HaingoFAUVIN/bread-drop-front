@@ -16,6 +16,7 @@ function BakeryTitleBread({ isVisible, setIsVisible }) {
   // Rendu du composant
   return (
     <section className="category">
+<<<<<<< HEAD
       <h1 className="category-title"> PAINS</h1>
       <Link
         className="category-button"  // Classe pour le bouton
@@ -26,6 +27,23 @@ function BakeryTitleBread({ isVisible, setIsVisible }) {
         {/* Icône qui change en fonction de l'état de visibilité */}
         {isVisible ? <ArrowCircleUpOutlinedIcon /> : <ArrowCircleDownOutlinedIcon />}
       </Link>
+=======
+      <div className="category-h1">
+        <h1 className="category-title">PAINS</h1>
+      </div>
+      <div className="category-div">
+        <Link
+          className="category-button"
+          onClick={() => {
+            // console.log('Boutton cliqué');
+            setIsVisible(!isVisible);
+          }}
+        >
+          {/* STYLISER LE BUTTON  */}
+          {isVisible ? <ArrowCircleUpOutlinedIcon sx={{ fontSize: 40 }} /> : <ArrowCircleDownOutlinedIcon sx={{ fontSize: 40 }} />}
+        </Link>
+      </div>
+>>>>>>> fa720bf8bb4284c62d87b4f48644389bbe1c51a4
     </section>
   );
 }

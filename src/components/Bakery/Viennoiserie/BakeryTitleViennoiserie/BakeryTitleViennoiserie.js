@@ -24,7 +24,12 @@ function BakeryTitleViennoiserie({ isVisible3, setIsVisible3 }) {
           setIsVisible3(!isVisible3);  // Inverse l'état de visibilité lorsqu'on clique sur le bouton
         }}
       >
+<<<<<<< HEAD
         {isVisible3 ? <ArrowCircleUpOutlinedIcon /> : <ArrowCircleDownOutlinedIcon />}
+=======
+        {/* STYLISER LE BUTTON  */}
+        {isVisible3 ? <ArrowCircleUpOutlinedIcon sx={{ fontSize: 40 }} /> : <ArrowCircleDownOutlinedIcon sx={{ fontSize: 40 }} />}
+>>>>>>> fa720bf8bb4284c62d87b4f48644389bbe1c51a4
       </Link>
     </section>
   );

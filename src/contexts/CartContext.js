@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 // Importer les modules nécessaires de React
 import React, { createContext, useState, useEffect } from 'react';
+=======
+import { createContext, useState, useEffect } from 'react';
+>>>>>>> fa720bf8bb4284c62d87b4f48644389bbe1c51a4
 
 // Créer un nouveau contexte pour le panier
 export const CartContext = createContext();

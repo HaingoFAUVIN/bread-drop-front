@@ -90,12 +90,17 @@ function Bakery({
         : (
           <>
             <Nav />
+<<<<<<< HEAD
             <BakeryBanner bakery={bakery} bakeryHours={bakeryHours} />
             <BakerySearchProducts />
+=======
+            <BakeryBanner bakery={bakery} />
+            <BakerySearchProducts products={bakery.products} />
+>>>>>>> fa720bf8bb4284c62d87b4f48644389bbe1c51a4
             <Bread isVisible={isVisible} setIsVisible={setIsVisible} breads={breads} />
+            <Sandwich isVisible4={isVisible4} setIsVisible4={setIsVisible4} sandwiches={sandwiches} />
             <Pastry isVisible2={isVisible2} setIsVisible2={setIsVisible2} pastries={pastries} />
             <Viennoiserie isVisible3={isVisible3} setIsVisible3={setIsVisible3} viennoiseries={viennoiseries} />
-            <Sandwich isVisible4={isVisible4} setIsVisible4={setIsVisible4} sandwiches={sandwiches} />
             <Footer />
           </>
         )
