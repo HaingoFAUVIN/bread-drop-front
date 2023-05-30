@@ -26,13 +26,10 @@ function Basket() {
   const handlePayment = async () => {
     let [date, time] = dateTime.split('T');
 
-  const handlePayment = async () => {
-    let [date, time] = dateTime.split('T');
-  
     const orderProducts = cart.map(item => {
       return { product: item.id, quantity: item.quantity };
     });
-    
+
     const order = {
       date: date,
       price: total,
@@ -40,13 +37,13 @@ function Basket() {
       delivery: true,
       schedule: time,
       user: userid,
-      orderProducts: orderProducts
+      orderProducts: orderProducts,
     };
-  
+
     try {
       const response = await api.post('api/commandes', order);
       console.log(response.data);
-      clearCart(); 
+      clearCart();
     } catch (error) {
       console.error('Erreur dans la commande.', error);
     }
@@ -58,10 +55,10 @@ function Basket() {
       <div className="basket">
         <div className="basketCard">
           <div className="basketCard-content">
-            <img className="basketCard-BakeryImg" src={Bakery} alt="boulangerie" height="100" width="100" />
-            <h1 className="basketCard-BakeryName">Pain quotidien</h1>
             {cart.map((item, index) => (
               <div className="basketProduct" key={index}>
+                <img className="basketCard-BakeryImg" src={Bakery} alt="boulangerie" height="100" width="100" />
+                <h1 className="basketCard-BakeryName">Pain quotidien</h1>
                 <div className="basketProduct-content">
                   <div className="basketProduct-Img">
                     <img src={item.picture} alt={item.name} height="100" width="100" />
