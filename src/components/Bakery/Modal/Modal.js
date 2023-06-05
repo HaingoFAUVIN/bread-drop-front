@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { CartContext } from '../../../contexts/CartContext';
 import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
 import PropTypes from 'prop-types';
 import './styles.scss';
@@ -10,6 +10,7 @@ import QuantityForm from '../QuantityForm/QuantityForm';
 
 function Modal({ closeModal, product }) {
   const [productDetails, setProductDetails] = useState(null);
+  const { errorMessage, clearErrorMessage } = useContext(CartContext);
 
   const api = axios.create({
     baseURL: 'https://davyvistel-server.eddi.cloud/',
@@ -34,13 +35,18 @@ function Modal({ closeModal, product }) {
     }
   }, [product]);
 
+  const handleCloseModal = () => {
+    closeModal(false);
+    clearErrorMessage();
+  };
+
   return (
     <div className="modal-contain">
       <div className="modal-card">
         <div className="modal-image">
           <Link
             className="closeModal"
-            onClick={() => closeModal(false)}
+            onClick={handleCloseModal}
           >
             <HighlightOffOutlinedIcon />
           </Link>
@@ -49,6 +55,7 @@ function Modal({ closeModal, product }) {
         <div className="modal-description">
           <p className="descriptionModal">{product.description}</p>
         </div>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <div className="modal-other">
           <h2 className="modal-likes">Vous aimerez peut-être ceci</h2>
           <div className="modal-pictures">

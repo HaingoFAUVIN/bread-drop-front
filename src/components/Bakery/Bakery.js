@@ -19,15 +19,15 @@ import CircularIndeterminate from '../CircularIndeterminate';
 // DATA, SCSS, ASSETS
 
 function Bakery({
-  isVisible,
-  setIsVisible,
-  isVisible2,
-  setIsVisible2,
-  isVisible3,
-  setIsVisible3,
-  isVisible4,
-  setIsVisible4,
-}) {
+                  isVisible,
+                  setIsVisible,
+                  isVisible2,
+                  setIsVisible2,
+                  isVisible3,
+                  setIsVisible3,
+                  isVisible4,
+                  setIsVisible4,
+                }) {
   const { id } = useParams();
   const [bakery, setBakery] = useState(null);
   const [bakeryHours, setBakeryHours] = useState(null);
@@ -56,22 +56,22 @@ function Bakery({
 
         const pastriesData = response.data.products.filter(
           (products) => products.category.name === 'Pâtisserie',
-        );
+        ).map(product => ({ ...product, bakeryId: response.data.id }));
         setPastries(pastriesData);
 
         const viennoiseriesData = response.data.products.filter(
           (products) => products.category.name === 'Viennoiserie',
-        );
+        ).map(product => ({ ...product, bakeryId: response.data.id }));
         setViennoiseries(viennoiseriesData);
 
         const breadsData = response.data.products.filter(
           (products) => products.category.name === 'Pain',
-        );
+        ).map(product => ({ ...product, bakeryId: response.data.id }));
         setBreads(breadsData);
 
         const sandwichesData = response.data.products.filter(
           (products) => products.category.name === 'Sandwitch',
-        );
+        ).map(product => ({ ...product, bakeryId: response.data.id }));
         setSandwiches(sandwichesData);
       }
       catch (erreur) {
