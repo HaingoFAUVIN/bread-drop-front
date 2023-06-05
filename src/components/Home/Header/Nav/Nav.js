@@ -57,9 +57,14 @@ function Nav() {
           </Link>
         )}
         {isUserLoggedIn ? (
+          <>
+            <Link to="#" onClick={handleLogout} className="navbar-item">
+              Déconnexion
+            </Link>
           <Link to="/profil" className="navbar-profile">
             <img className="navbar-profile-img" src={profileImg} alt="profile" height="50" width="50" />
           </Link>
+          </>
         ) : (
           <>
             <Link to="/inscription" className="navbar-item navbar-inscription">

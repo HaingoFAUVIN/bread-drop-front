@@ -2,6 +2,7 @@ import './CheckIn.scss';
 import axios from 'axios';
 import { useState } from 'react';
 import checkinImage from '../../../assets/CheckIn.jpg';
+import {useNavigate} from "react-router-dom";
 
 function CheckIn() {
   const [lastname, setLastName] = useState('');
@@ -10,6 +11,8 @@ function CheckIn() {
   const [password, setPassword] = useState('');
   const [adress, setAdress] = useState('');
   const [role, setRole] = useState(['ROLE_USER']);
+
+  const navigate = useNavigate();
 
   const api = axios.create({
     baseURL: 'https://davyvistel-server.eddi.cloud/',
@@ -30,6 +33,7 @@ function CheckIn() {
         roles: [role],
       });
       console.log(response.data);
+      navigate('/connexion');
     } catch (error) {
       console.log(error);
     }
