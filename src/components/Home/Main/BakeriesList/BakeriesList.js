@@ -15,7 +15,7 @@ function BakeriesList() {
   });
 
   const opencageApi = 'https://api.opencagedata.com/geocode/v1/json';
-  const opencageKey = '4be7cd973529483cb63a8c8d1c87d028';
+  const opencageKey = '255c8a0da0cf451897955c3086cc1cff';
 
   const [bakeriesList, setBakeriesList] = useState([]);
   const [schedules, setSchedules] = useState([]);

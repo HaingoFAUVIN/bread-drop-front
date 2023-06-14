@@ -27,7 +27,7 @@ function Basket() {
     let [date, time] = dateTime.split('T');
 
     const orderProducts = cart.map(item => {
-      return { product: item.id, quantity: item.quantity };
+      return { product: item.id, quantity: parseInt(item.quantity, 10) };
     });
 
     const order = {
