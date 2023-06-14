@@ -34,7 +34,7 @@ export const UserProvider = ({ children }) => {
                 sessionStorage.setItem('userName', user.firstname);
                 sessionStorage.setItem('lastName', user.lastname);
                 sessionStorage.setItem('userEmail', user.email);
-                sessionStorage.setItem('userAddress', user.adress);
+                sessionStorage.setItem('userAdress', user.adress);
                 sessionStorage.setItem('userOrders', JSON.stringify(user.orders));
                 setUser(user);
               }

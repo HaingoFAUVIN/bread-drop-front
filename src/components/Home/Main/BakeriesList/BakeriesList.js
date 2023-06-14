@@ -110,7 +110,7 @@ function BakeriesList() {
                   .filter((schedule) => schedule.bakery.id === bakery.id && schedule.day === currentDay)
                   .map((schedule, index) => (
                     <p key={index}>
-                      {schedule.day}: {schedule.openMorning} - {schedule.closeMorning}, {schedule.openAfternoon} - {schedule.closeAfternoon}
+                      {schedule.day}: {schedule.openMorning}H - {schedule.closeMorning}H, {schedule.openAfternoon}H - {schedule.closeAfternoon}H
                     </p>
                   ))}
               </div>
